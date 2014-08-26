@@ -53,5 +53,5 @@ GolfStats::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  # Test
+  # Test 2
 end
