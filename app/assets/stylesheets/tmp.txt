@@ -9,7 +9,8 @@ $grayMediumLight: #eaeaea;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
- 
+
+
 /* universal */
 
 html {
@@ -17,7 +18,7 @@ html {
 }
 
 body {
-  padding-top: 10px;
+  padding-top: 60px;
 }
 
 section {
@@ -30,26 +31,10 @@ textarea {
 
 .center {
   text-align: center;
-  h1 {
-    margin-bottom: 10px;
+	h1 {
+  	margin-bottom: 10px;
   }
 }
-
-.form-inline .form-group-score-input1 input {
-  width:160px;
-  height: 30px;
-}
-
-.form-inline .form-group-score-input2 input {
-  width:80px;
-  height: 30px;
-}
-
-table {
-  table-layout: auto;
-}
-
-table th, table td { overflow: hidden; }
 
 /* typography */
 
@@ -70,7 +55,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  
+  color: $grayLight;
 }
 
 p {
@@ -84,44 +69,42 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: green;
+  color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
-  &:logo:hover {
-    color: white;
-    text-decoration: none;
+	&:logo:hover {
+	  color: white;
+  	text-decoration: none;
   }
 }
 
-.navbar-btn {a, a:link, a:hover, a:visited, a:active {text-decoration: none; color: black}}
-  
 /* footer */
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  
-  a {
-    color: $gray;
-    &:hover {
-      
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
-  }
+  color: $grayLight;
+	a {
+  	color: $gray;
+		&:hover {
+  		color: $grayDarker;
+		}
+	}
+	small {
+  	float: left;
+	}
+ 	ul {
+  	float: right;
+  	list-style: none;
+		li {
+  		float: left;
+  		margin-left: 10px;
+  	}
+	}
 }
 
 /* sidebar */
@@ -129,7 +112,7 @@ footer {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid ;
+    border-top: 1px solid $grayLighter;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -153,16 +136,14 @@ aside {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  /*width: 100%;
-  margin-bottom: 15px;*/
+  width: 100%;
+  margin-bottom: 15px;
   @include box_sizing;
 }
 
 input {
-  /* height: auto !important; */
+  height: auto !important;
 }
-
-
 
 #error_explanation {
   color: #f00;
@@ -185,9 +166,9 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid ;
+    border-top: 1px solid $grayLighter;
     &:last-child {
-      border-bottom: 1px solid ;
+      border-bottom: 1px solid $grayLighter;
     }
   }
 }
@@ -207,7 +188,7 @@ input {
   display: block;
 }
 .timestamp {
-  
+  color: $grayLight;
 }
 
 #score_entry label {
@@ -234,53 +215,50 @@ aside {
 }
 
 
-/* std_pagination */
+<% provide(:title, @user.name) %>
 
-.std_pagination {
-  text-align: center;
-  padding: 0.3em;
-  cursor: default;
-}
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section>
+      <%#= render 'score_form' %>
+    </section>
+  </aside>
+</div>
+<%= render 'score_form' %>
+<div class="span8">
+  <% if @user.scores.any? %>
+    <h3>Scores (<%= @user.scores.count %>)</h3>
+    <ol class="scores">
+      <%#= render @scores %>
 
-.std_pagination a, .std_pagination span, .std_pagination em {
-    padding: 0.2em 0.5em;
-}
-
-.std_pagination .disabled {
-    color: #aaaaaa; 
-}
-
-.std_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    color: #ff0084; 
-}
-
-.std_pagination a {
-    border: 1px solid #dddddd;
-    color: #0063dc;
-    text-decoration: none; 
-}
-
-.std_pagination a:hover, .std_pagination a:focus {
-      border-color: #003366;
-      background: #0063dc;
-      color: white; 
-}
-
-.std_pagination .page_info {
-    color: #aaaaaa;
-    padding-top: 0.8em; 
-}
-
-.std_pagination .previous_page, .std_pagination .next_page {
-    border-width: 2px; 
-}
-
-.std_pagination .previous_page {
-    margin-right: 1em; 
-}
-
-.std_pagination .next_page {
-    margin-left: 1em; 
-}
+      <h1>Listing Scores</h1>
+ 
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>HC</th>
+          <th>Score</th>
+          <th>Fairways</th>
+          <th>Greens</th>
+          <th>Putts</th>
+        </tr>
+   
+        <% @scores.each do |score| %>
+          <tr>
+            <td><%= score.score_date %></td>
+            <td><%= score.hc %></td>
+            <td><%= score.score_1 %></td>
+            <td><%= score.fairways_1 %></td>
+            <td><%= score.greens_1 %></td>
+            <td><%= score.putts_1 %></td>
+          </tr>
+        <% end %>
+      </table>
+ 
+    </ol>
+    <%= will_paginate @scores %>
+  <% end %>
+</div>

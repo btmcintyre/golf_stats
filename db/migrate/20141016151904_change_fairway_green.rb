@@ -1,0 +1,40 @@
+class ChangeFairwayGreen < ActiveRecord::Migration
+  def change
+  	change_column :scores, :fairways_1, :boolean
+		change_column :scores, :fairways_2, :boolean
+		change_column :scores, :fairways_3, :boolean
+		change_column :scores, :fairways_4, :boolean
+		change_column :scores, :fairways_5, :boolean
+		change_column :scores, :fairways_6, :boolean
+		change_column :scores, :fairways_7, :boolean
+		change_column :scores, :fairways_8, :boolean
+		change_column :scores, :fairways_9, :boolean
+		change_column :scores, :fairways_10, :boolean
+		change_column :scores, :fairways_11, :boolean
+		change_column :scores, :fairways_12, :boolean
+		change_column :scores, :fairways_13, :boolean
+		change_column :scores, :fairways_14, :boolean
+		change_column :scores, :fairways_15, :boolean
+		change_column :scores, :fairways_16, :boolean
+		change_column :scores, :fairways_17, :boolean
+		change_column :scores, :fairways_18, :boolean
+		change_column :scores, :greens_1, :boolean
+		change_column :scores, :greens_2, :boolean
+		change_column :scores, :greens_3, :boolean
+		change_column :scores, :greens_4, :boolean
+		change_column :scores, :greens_5, :boolean
+		change_column :scores, :greens_6, :boolean
+		change_column :scores, :greens_7, :boolean
+		change_column :scores, :greens_8, :boolean
+		change_column :scores, :greens_9, :boolean
+		change_column :scores, :greens_10, :boolean
+		change_column :scores, :greens_11, :boolean
+		change_column :scores, :greens_12, :boolean
+		change_column :scores, :greens_13, :boolean
+		change_column :scores, :greens_14, :boolean
+		change_column :scores, :greens_15, :boolean
+		change_column :scores, :greens_16, :boolean
+		change_column :scores, :greens_17, :boolean
+		change_column :scores, :greens_18, :boolean
+  end
+end

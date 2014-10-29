@@ -1,0 +1,68 @@
+
+<div class = "container">
+	<div class = "score-input">
+	<%= form_for(@score , html:{class: "form-inline", role: "form"}) do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
+
+	 	<div class = "row">
+	 		<div class = "form-group form-group-sm">	
+				<label class="control-label col-md-3">Date:</label>
+		 		<div class="input-group col-md-3">
+					<%= f.date_field :score_date, class: "form-control", placeholder: "Date" %>
+				</div>
+				<div class="input-group col-md-3">
+					<%= f.number_field :hc, class: "form-control", placeholder: "H/C" %>
+				</div>
+			</div>
+		</div>
+	
+
+		
+	<div class = "row">
+		<div class = "row">		
+			<div class = "form-group form-group-sm">	
+				<label class="control-label">Hole 1:</label>
+		    <div class="input-group col-md-2">
+					<%= f.number_field :score_1, class: "form-control", placeholder: "S" %>
+				</div>
+				<div class="input-group col-md-2">
+					<%= f.number_field :putts_1, class: "form-control", placeholder: "P" %>
+				</div>
+				<div class="input-group col-md-1">
+					<%= f.check_box :fairways_1, class: "form-control" , placeholder: "F"%>
+				</div>
+				<div class="input-group col-md-1">
+					<%= f.check_box :greens_1, class: "form-control" , placeholder: "G"%>
+				</div>
+			</div>
+			
+			<div class = "form-group form-group-sm">	
+				<label class="control-label">Hole 10:</label>
+		    <div class="input-group col-md-2">
+					<%= f.number_field :score_10, class: "form-control", placeholder: "S" %>
+				</div>
+				<div class="input-group col-md-2">
+					<%= f.number_field :putts_10 , class: "form-control", placeholder: "P" %>
+				</div>
+				<div class="input-group col-md-1">
+					<%= f.check_box :fairways_10, class: "form-control" %>
+				</div>
+				<div class="input-group col-md-1">
+					<%= f.check_box :greens_10, class: "form-control" %>
+				</div>
+			</div>
+		</div>
+
+		<div class = "row">
+			<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+		</div>
+		
+
+
+	  </form>
+	</div>
+
+	<% end %>
+</div>
+</div>
+

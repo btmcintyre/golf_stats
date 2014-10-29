@@ -14,20 +14,21 @@ describe "Authentication" do
   describe "signin" do
     before { visit signin_path }
 
+    it { should_not have_link('My Scores') }
     it { should_not have_link('Users') }
     it { should_not have_link('Profile') }
     it { should_not have_link('Settings') }
     it { should_not have_link('Sign out', href: signout_path) }
 
     describe "with invalid information" do
-      before { click_button "Sign in" }
+      before { first(".page-sign-in").click_button("Sign in") }
 
       it { should have_title('Sign in') }
-      it { should have_selector('div.alert.alert-error') }
+      it { should have_selector('div.alert.alert-danger') }
 
       describe "after visiting another page" do
         before { click_link "Home" }
-        it { should_not have_selector('div.alert.alert-error') }
+        it { should_not have_selector('div.alert.alert-danger') }
       end
     end
 
@@ -36,6 +37,7 @@ describe "Authentication" do
       before { sign_in user }
 
       it { should have_title(user.name) }
+      it { should have_link('My Scores',   href: score_path(user)) }
       it { should have_link('Users',       href: users_path) }
       it { should have_link('Profile',     href: user_path(user)) }
       it { should have_link('Settings',    href: edit_user_path(user)) }
@@ -96,6 +98,22 @@ describe "Authentication" do
           it { should have_title('Sign in') }
         end
       end
+
+      describe "in the Scores controller" do
+
+        describe "submitting to the create action" do
+          before { post scores_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete score_path(FactoryGirl.create(:score)) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
+
+
+
     end
 
     describe "as wrong user" do

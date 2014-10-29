@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :signed_out_user, only: [:new, :create]
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 10)
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Golf Statistics Application!"
+      flash[:notice] = "Welcome to the Golf Statistics Application!"
       redirect_to @user
     else
       render 'new'
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:notice] = "Profile updated"
       redirect_to @user
     else
       render 'edit'
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     unless current_user?(user)
       user.destroy
-      flash[:success] = "User deleted."
+      flash[:notice] = "User deleted."
     end
     redirect_to users_url
   end
@@ -56,15 +56,8 @@ class UsersController < ApplicationController
   end
 
   # Before filters
-  def signed_in_user
-    unless signed_in?
-      store_location
-      redirect_to signin_url, notice: "Please sign in."
-    end
-  end
-
   def signed_out_user
-     redirect_to(root_url, notice: "You are already a User - Please sign in.") unless not signed_in?
+    redirect_to(root_url, notice: "You are already a User - Please sign in.") unless not signed_in?
   end
 
   def correct_user

@@ -1,30 +1,35 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "Golf Statistics", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home",    root_path %></li>          
-           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header"></div>
+  <div class="container">
+    <%= link_to "Golf Statistics", root_path, id: "logo" %>
+    
+    <% if signed_in? %>
+      <div class="nav pull-right navbar-nav">
+        <%= render 'shared/user_info' %>
+      </div>
+    <% end %>
+    
+    <ul class="nav pull-left navbar-nav">
+      <div class="btn-group">
+        <button class="btn btn-default navbar-btn"><li><%= link_to "Home", root_path %></li></button>         
+        <% if signed_in? %>
+          <button class="btn btn-default navbar-btn"><li><%= link_to "My Scores", score_path(current_user) %></li></button>
+            <button class="btn btn-default navbar-btn"><li><%= link_to "Users", users_path %></li></button>
+            <div class="btn-group">
+              <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Account<span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
+                <li><%= link_to "Profile", user_path(current_user) %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
-                </li>
+                <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
               </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
-          <% end %>
-         </ul>
-      </nav>
-    </div>
+            </div>
+          </div>
+        <% else %>
+          <button class="btn btn-default navbar-btn"><li><%= link_to "Sign in", signin_path %></li></button>     
+        <% end %>
+      </div>
+    </ul>
   </div>
-</header>
+</nav>
+

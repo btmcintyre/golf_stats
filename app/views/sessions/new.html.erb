@@ -2,7 +2,7 @@
 <h1>Sign in</h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="col-md-6 offset3">
     <%= form_tag(sessions_path) do %>
 
       <%= label_tag :email %>
@@ -10,8 +10,9 @@
 
       <%= label_tag :password %>
       <%= password_field_tag :password %>
-
-      <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+      <div class="page-sign-in">
+        <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+      </div>
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>

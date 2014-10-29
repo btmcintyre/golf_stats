@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 
- before do
+  before do
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
   end
@@ -17,6 +17,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:scores) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -123,6 +124,21 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "score associations" do
+    
+    before { @user.save }
+    let!(:a_score) {FactoryGirl.create(:score, user: @user) }
+   
+    it "should destroy associated scores" do
+      scores = @user.scores.to_a
+      @user.destroy
+      expect(scores).not_to be_empty
+      scores.each do |score|
+        expect(Score.where(id: score.id)).to be_empty
+      end
+    end
   end
 
 end

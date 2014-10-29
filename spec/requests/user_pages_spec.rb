@@ -54,12 +54,33 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+       
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
   end
+  
+  describe "My Scores page" do
+    let(:user) { FactoryGirl.create(:user) }
+    let!(:s1) {FactoryGirl.create(:score, user: user, score_date: "04/10/2014")}
+    let!(:s2) {FactoryGirl.create(:score, user: user, score_date: "11/10/2014")}
+    
+    before do
+      sign_in user
+      visit score_path(user) 
+    end
 
+    it { should have_content(user.name) }
+    it { should have_title(user.name) }
+
+    describe "scores" do
+      it { should have_content(s1.score_date.strftime("%d/%m/%y"))}
+      it { should have_content(s2.score_date.strftime("%d/%m/%y"))}
+      it { should have_content(user.scores.count) }
+    end
+  end
+  
   describe "signup page" do
     before { visit signup_path }
 

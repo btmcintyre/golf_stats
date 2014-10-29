@@ -1,0 +1,51 @@
+<% provide(:title, @user.name) %>
+
+<div class="btn-group">
+  <%= link_to "Enter New Score", new_score_path, class: "btn btn-success align-center" %>
+</div>
+
+
+  <% if @user.scores.any? %>
+    <h5>Scores (<%= @user.scores.count %>)</h5>
+    <ol class="scores">
+      <%#= render @scores %>
+
+      <table class="table table-bordered table-condensed">
+        <tr>
+          <th>Date</th>
+          <th>HC</th>
+          <th>Score</th>
+          <th>Points</th>
+          <th>Putts</th>
+          <th>Fairways</th>
+          <th>Greens</th>
+          <th></th>
+                    
+        </tr>
+   
+        <% @scores.each do |score| %>
+          
+          <tr>
+            <td><%= score.score_date %></td>
+            <td><%= score.hc %></td>
+            <td><%= @presenter.total_score(score) %></td>      
+            <td><%= @presenter.total_points(score) %></td>      
+            <td><%= @presenter.total_putts(score) %></td>      
+            <td><%= @presenter.total_fairways(score) %></td>      
+            <td><%= @presenter.total_greens(score) %></td> 
+            <td><%= link_to "Edit", edit_score_path(score) %></td> 
+            
+            <!--<td><%= score.attributes %></td>-->
+
+
+          </tr>
+        <% end %>
+      </table>
+ 
+    </ol>
+    <div class="std_pagination">
+      <%= will_paginate @scores %>
+    </div>
+  <% end %>
+
+

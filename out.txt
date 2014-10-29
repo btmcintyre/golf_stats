@@ -1,0 +1,80 @@
+...............................................................................................................FFF..............................................FFFFF.......
+
+Failures:
+
+  1) Score pages score creation with invalid information should not create a score
+     Failure/Error: expect { click_button "Post" }.not_to change(Score, :count)
+     Capybara::ElementNotFound:
+       Unable to find button "Post"
+     # ./spec/requests/score_pages_spec.rb:16:in `block (5 levels) in <top (required)>'
+     # ./spec/requests/score_pages_spec.rb:16:in `block (4 levels) in <top (required)>'
+
+  2) Score pages score creation with invalid information should show an error messages 
+     Failure/Error: before { click_button "Post" }
+     Capybara::ElementNotFound:
+       Unable to find button "Post"
+     # ./spec/requests/score_pages_spec.rb:20:in `block (5 levels) in <top (required)>'
+
+  3) Score pages score creation with valid information should create a score
+     Failure/Error: expect { click_button "Post" }.to change(Score, :count).by(1)
+     Capybara::ElementNotFound:
+       Unable to find button "Post"
+     # ./spec/requests/score_pages_spec.rb:29:in `block (5 levels) in <top (required)>'
+     # ./spec/requests/score_pages_spec.rb:29:in `block (4 levels) in <top (required)>'
+
+  4) User pages My Score page 
+     Failure/Error: before { visit myscore_path(user) }
+     ActionView::Template::Error:
+       undefined method `name' for nil:NilClass
+     # ./app/views/shared/_user_info.html.erb:2:in `_app_views_shared__user_info_html_erb__794487744_53859192'
+     # ./app/views/myscores/show.html.erb:6:in `_app_views_myscores_show_html_erb___937330199_53843580'
+     # ./spec/requests/user_pages_spec.rb:70:in `block (3 levels) in <top (required)>'
+
+  5) User pages My Score page 
+     Failure/Error: before { visit myscore_path(user) }
+     ActionView::Template::Error:
+       undefined method `name' for nil:NilClass
+     # ./app/views/shared/_user_info.html.erb:2:in `_app_views_shared__user_info_html_erb__794487744_53859192'
+     # ./app/views/myscores/show.html.erb:6:in `_app_views_myscores_show_html_erb___937330199_53843580'
+     # ./spec/requests/user_pages_spec.rb:70:in `block (3 levels) in <top (required)>'
+
+  6) User pages My Score page scores 
+     Failure/Error: before { visit myscore_path(user) }
+     ActionView::Template::Error:
+       undefined method `name' for nil:NilClass
+     # ./app/views/shared/_user_info.html.erb:2:in `_app_views_shared__user_info_html_erb__794487744_53859192'
+     # ./app/views/myscores/show.html.erb:6:in `_app_views_myscores_show_html_erb___937330199_53843580'
+     # ./spec/requests/user_pages_spec.rb:70:in `block (3 levels) in <top (required)>'
+
+  7) User pages My Score page scores 
+     Failure/Error: before { visit myscore_path(user) }
+     ActionView::Template::Error:
+       undefined method `name' for nil:NilClass
+     # ./app/views/shared/_user_info.html.erb:2:in `_app_views_shared__user_info_html_erb__794487744_53859192'
+     # ./app/views/myscores/show.html.erb:6:in `_app_views_myscores_show_html_erb___937330199_53843580'
+     # ./spec/requests/user_pages_spec.rb:70:in `block (3 levels) in <top (required)>'
+
+  8) User pages My Score page scores 
+     Failure/Error: before { visit myscore_path(user) }
+     ActionView::Template::Error:
+       undefined method `name' for nil:NilClass
+     # ./app/views/shared/_user_info.html.erb:2:in `_app_views_shared__user_info_html_erb__794487744_53859192'
+     # ./app/views/myscores/show.html.erb:6:in `_app_views_myscores_show_html_erb___937330199_53843580'
+     # ./spec/requests/user_pages_spec.rb:70:in `block (3 levels) in <top (required)>'
+
+Finished in 3.8 seconds
+172 examples, 8 failures
+
+Failed examples:
+
+rspec ./spec/requests/score_pages_spec.rb:15 # Score pages score creation with invalid information should not create a score
+rspec ./spec/requests/score_pages_spec.rb:21 # Score pages score creation with invalid information should show an error messages 
+rspec ./spec/requests/score_pages_spec.rb:28 # Score pages score creation with valid information should create a score
+rspec ./spec/requests/user_pages_spec.rb:72 # User pages My Score page 
+rspec ./spec/requests/user_pages_spec.rb:73 # User pages My Score page 
+rspec ./spec/requests/user_pages_spec.rb:76 # User pages My Score page scores 
+rspec ./spec/requests/user_pages_spec.rb:77 # User pages My Score page scores 
+rspec ./spec/requests/user_pages_spec.rb:78 # User pages My Score page scores 
+
+Randomized with seed 17483
+
