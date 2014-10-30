@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :signed_out_user, only: [:new, :create]
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @users = User.paginate(page: params[:page], per_page: 12)
   end
 
   def show

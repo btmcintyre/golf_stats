@@ -6,7 +6,7 @@ class ScoresController < ApplicationController
 
   def show
     @user   = User.find(params[:id])
-    @scores = @user.scores.paginate(page: params[:page], per_page: 8)
+    @scores = @user.scores.paginate(page: params[:page], per_page: 12)
     @presenter = ScorePresenters::GolfScorePresenter.new 
   end
 
@@ -20,21 +20,18 @@ class ScoresController < ApplicationController
       flash[:notice] = "Score created!"
       redirect_to score_path(current_user)
     else
-      flash[:error] = "There is a problem..."
-      redirect_to score_path(current_user)
+      render 'new'
     end
   end
   
   def edit
     @score = current_user.scores.find(params[:id])
-    
   end
   
   def update
     @score = current_user.scores.find(params[:id])
-    
     if @score.update_attributes(score_params)
-     flash[:success] = "Score updated"
+     flash[:notice] = "Score updated"
      redirect_to score_path(current_user)
    else
      render 'edit'
