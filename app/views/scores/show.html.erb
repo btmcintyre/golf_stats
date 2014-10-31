@@ -8,8 +8,7 @@
   <% if @user.scores.any? %>
     <h5>Scores (<%= @user.scores.count %>)</h5>
     <ol class="scores">
-      <%#= render @scores %>
-
+      
       <table class="table table-bordered table-condensed">
         <tr>
           <th>Date</th>
@@ -19,7 +18,7 @@
           <th>Putts</th>
           <th>Fairways</th>
           <th>Greens</th>
-          <th></th>
+          
                     
         </tr>
    
@@ -33,7 +32,8 @@
             <td><%= @presenter.total_putts(score) %></td>      
             <td><%= @presenter.total_fairways(score) %></td>      
             <td><%= @presenter.total_greens(score) %></td> 
-            <td><%= link_to "Edit", edit_score_path(score) %></td> 
+            <td><%= link_to "Edit", edit_score_path(score) %> / <%= link_to "Delete", score, method: :delete,
+                                  data: { confirm: "Are you absolutely sure?" } %></td> 
             
             <!--<td><%= score.attributes %></td>-->
 

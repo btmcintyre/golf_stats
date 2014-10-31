@@ -39,28 +39,33 @@ class ScoresController < ApplicationController
   end
 
   def destroy
+    @score = current_user.scores.find(params[:id])
+    @score.destroy
+    flash[:notice] = "Score deleted."
+    redirect_to score_path(current_user)
   end
 
   private
-  def score_params
-    params.require(:score).permit(:score_date, :hc, :score_1,  :fairways_1,  :greens_1,  :putts_1, 
-                                                    :score_2,  :fairways_2,  :greens_2,  :putts_2, 
-                                                    :score_3,  :fairways_3,  :greens_3,  :putts_3, 
-                                                    :score_4,  :fairways_4,  :greens_4,  :putts_4, 
-                                                    :score_5,  :fairways_5,  :greens_5,  :putts_5, 
-                                                    :score_6,  :fairways_6,  :greens_6,  :putts_6, 
-                                                    :score_7,  :fairways_7,  :greens_7,  :putts_7, 
-                                                    :score_8,  :fairways_8,  :greens_8,  :putts_8, 
-                                                    :score_9,  :fairways_9,  :greens_9,  :putts_9, 
-                                                    :score_10, :fairways_10, :greens_10, :putts_10,
-                                                    :score_11, :fairways_11, :greens_11, :putts_11,
-                                                    :score_12, :fairways_12, :greens_12, :putts_12,
-                                                    :score_13, :fairways_13, :greens_13, :putts_13,
-                                                    :score_14, :fairways_14, :greens_14, :putts_14,
-                                                    :score_15, :fairways_15, :greens_15, :putts_15,
-                                                    :score_16, :fairways_16, :greens_16, :putts_16,
-                                                    :score_17, :fairways_17, :greens_17, :putts_17,
-                                                    :score_18, :fairways_18, :greens_18, :putts_18)
-  end
+
+    def score_params
+      params.require(:score).permit(:score_date, :hc, :score_1,  :fairways_1,  :greens_1,  :putts_1, 
+                                                      :score_2,  :fairways_2,  :greens_2,  :putts_2, 
+                                                      :score_3,  :fairways_3,  :greens_3,  :putts_3, 
+                                                      :score_4,  :fairways_4,  :greens_4,  :putts_4, 
+                                                      :score_5,  :fairways_5,  :greens_5,  :putts_5, 
+                                                      :score_6,  :fairways_6,  :greens_6,  :putts_6, 
+                                                      :score_7,  :fairways_7,  :greens_7,  :putts_7, 
+                                                      :score_8,  :fairways_8,  :greens_8,  :putts_8, 
+                                                      :score_9,  :fairways_9,  :greens_9,  :putts_9, 
+                                                      :score_10, :fairways_10, :greens_10, :putts_10,
+                                                      :score_11, :fairways_11, :greens_11, :putts_11,
+                                                      :score_12, :fairways_12, :greens_12, :putts_12,
+                                                      :score_13, :fairways_13, :greens_13, :putts_13,
+                                                      :score_14, :fairways_14, :greens_14, :putts_14,
+                                                      :score_15, :fairways_15, :greens_15, :putts_15,
+                                                      :score_16, :fairways_16, :greens_16, :putts_16,
+                                                      :score_17, :fairways_17, :greens_17, :putts_17,
+                                                      :score_18, :fairways_18, :greens_18, :putts_18)
+    end
 
 end
