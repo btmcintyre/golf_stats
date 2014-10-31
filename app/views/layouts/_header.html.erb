@@ -1,5 +1,4 @@
 <nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header"></div>
   <div class="container">
     <%= link_to "Golf Statistics", root_path, id: "logo" %>
     
@@ -9,14 +8,15 @@
       </div>
     <% end %>
     
-    <ul class="nav pull-left navbar-nav">
+    <div class="nav pull-left navbar-nav">
       <div class="btn-group">
-        <button class="btn btn-default navbar-btn"><li><%= link_to "Home", root_path %></li></button>         
+        <%= link_to("Home", root_path, class: "btn btn-default navbar-btn") %>
+        
         <% if signed_in? %>
-          <button class="btn btn-default navbar-btn"><li><%= link_to "My Scores", score_path(current_user) %></li></button>
-            <button class="btn btn-default navbar-btn"><li><%= link_to "Users", users_path %></li></button>
-            <div class="btn-group">
-              <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Account<span class="caret"></span></button>
+          <%= link_to("My Scores", score_path(current_user), class: "btn btn-default navbar-btn") %>
+          <%= link_to("Users", users_path, class: "btn btn-default navbar-btn") %>
+          <div class="btn-group">
+            <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Account<span class="caret"></span></button>
               <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
                 <li><%= link_to "Profile", user_path(current_user) %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
@@ -26,10 +26,12 @@
             </div>
           </div>
         <% else %>
-          <button class="btn btn-default navbar-btn"><li><%= link_to "Sign in", signin_path %></li></button>     
+          <%= link_to("Sign in", signin_path, class: "btn btn-default navbar-btn") %> 
         <% end %>
       </div>
-    </ul>
+    </div>
   </div>
 </nav>
+
+
 

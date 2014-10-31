@@ -26,7 +26,7 @@
         <% @scores.each do |score| %>
           
           <tr>
-            <td><%= score.score_date %></td>
+            <td><%= score.score_date.strftime("%d/%m/%y") %></td>
             <td><%= score.hc %></td>
             <td><%= @presenter.total_score(score) %></td>      
             <td><%= @presenter.total_points(score) %></td>      

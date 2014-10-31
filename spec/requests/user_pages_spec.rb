@@ -14,17 +14,17 @@ describe "User pages" do
     end
 
     it { should have_title('All users') }
-    it { should have_content('All users') }
+    it { should have_content('Users') }
 
     describe "pagination" do
 
-      before(:all) { 10.times { FactoryGirl.create(:user) } }
+      before(:all) { 13.times { FactoryGirl.create(:user) } }
       after(:all)  { User.delete_all }
 
       it { should have_selector('div.pagination') }
 
       it "should list each user" do
-        User.paginate(page: 1, per_page: 10).each do |user|
+        User.paginate(page: 1, per_page: 8).each do |user|
           expect(page).to have_selector('li', text: user.name)
         end
       end
@@ -84,7 +84,7 @@ describe "User pages" do
   describe "signup page" do
     before { visit signup_path }
 
-    it { should have_selector('h1', text: 'Sign up') }
+    it { should have_selector('h4', text: 'Sign up...') }
     it { should have_title(full_title('Sign up')) }
   end
 
@@ -102,10 +102,10 @@ describe "User pages" do
 
     describe "with valid information" do
       before do
-        fill_in "Name",             with: "Don Kennedy"
-        fill_in "Email",            with: "donkennedy@example.com"
-        fill_in "Password",         with: "password"
-        fill_in "Confirm Password", with: "password"
+        fill_in "name",                  with: "Don Kennedy"
+        fill_in "email",                 with: "donkennedy@example.com"
+        fill_in "password",              with: "password"
+        fill_in "password_confirmation", with: "password"
       end
 
       it "should create a user" do
@@ -145,10 +145,10 @@ describe "User pages" do
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Name",             with: new_name
-        fill_in "Email",            with: new_email
-        fill_in "Password",         with: user.password
-        fill_in "Confirm Password", with: user.password
+        fill_in "name",                  with: new_name
+        fill_in "email",                 with: new_email
+        fill_in "password",              with: user.password
+        fill_in "password_confirmation", with: user.password
         click_button "Save changes"
       end
 
