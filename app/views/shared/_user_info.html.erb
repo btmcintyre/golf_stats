@@ -1,4 +1,9 @@
 <p>
-  <%= "Current User: " + current_user.name + ", " + current_user.email + ", " + pluralize(current_user.scores.count, "score")%>
+	<% if current_user.course.name == nil %>
+	<%   course_name = "<course not entered>" %>
+	<% else %>
+	<%   course_name = current_user.course.name %>
+	<% end %>
+  <%= "Current User: " + current_user.name + ", " + current_user.email + ", " + course_name + ", " + pluralize(current_user.scores.count, "score")%>
 </p>
 

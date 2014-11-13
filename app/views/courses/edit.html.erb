@@ -1,0 +1,44 @@
+<!-- Edit Course -->
+
+<div class = "container">
+	<%= form_for(@course , html:{class: "form-inline", role: "form"}) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		
+
+		<div class="form-group form-group-sm">
+      <%= f.label :name, "Course Name:" %>
+      <%= f.text_field :name, class: "form-control", id: "name", placeholder: "Course Name" %>
+    </div>
+		</p>
+
+	  
+	  <div class = "form-group-score-input form-group-sm">
+			<table class="table table-bordered table-condensed" style="width: 300px">
+	      <tr>
+	        <th style="width: 60px">Hole </th>
+	        <th style="width: 40px">Par</th>
+	        <th style="width: 40px">SI</th>
+	      </tr>      
+
+	      <% for i in 1..18 do %> 
+					<tr>
+						<td>
+							<label>Hole <%=i%></label>
+						</td>
+						<td>
+							<%= f.number_field ("par_" + i.to_s).to_sym, class: "form-control", placeholder: "Par" %>
+						</td>
+						<td>
+							<%= f.number_field ("si_" + i.to_s).to_sym, class: "form-control", placeholder: "SI" %>
+						</td>
+					</tr>
+	      <% end %>
+
+	      <!--<td><%#= @course.attributes %></td>-->
+	    </table>
+	  </div>
+			
+		<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+		<%= link_to "Cancel", score_path(current_user), {:class=>"btn btn-default"} %>
+	<% end %>
+</div>

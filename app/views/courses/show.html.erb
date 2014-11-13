@@ -1,0 +1,23 @@
+<% provide(:title, @user.name) %>
+
+<h4><%= @course.name %></h4>
+
+<table class="table table-bordered table-condensed" style="width: 240px">
+  <tr>
+    <th style="width: 40px">Hole </th>
+    <th style="width: 40px">Par</th>
+    <th style="width: 40px">SI</th>
+  </tr>      
+
+  <% for i in 1..18 do %>        
+    <%= render partial: "course_row", locals: {i: i } %>
+  <% end %>
+
+  <!--<td><%#= @course.attributes %></td>-->
+</table>
+
+ <div class="btn-group">
+  <%= link_to "Change course details", edit_course_path, class: "btn btn-success align-center" %>
+</div>
+
+

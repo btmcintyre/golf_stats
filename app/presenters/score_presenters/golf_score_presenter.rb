@@ -98,27 +98,27 @@ module ScorePresenters
       return (total_greens)
     end
 
-    def total_points(score)
+    def total_points(score, course)
       total_points = 0
       if score.hc != nil
-        total_points += calc_stableford(score.score_1,  5, calc_shots_on_hole(score.hc,  9)) if score.score_1  != nil 
-        total_points += calc_stableford(score.score_2,  4, calc_shots_on_hole(score.hc,  5)) if score.score_2  != nil
-        total_points += calc_stableford(score.score_3,  3, calc_shots_on_hole(score.hc, 17)) if score.score_3  != nil
-        total_points += calc_stableford(score.score_4,  4, calc_shots_on_hole(score.hc, 15)) if score.score_4  != nil
-        total_points += calc_stableford(score.score_5,  4, calc_shots_on_hole(score.hc,  7)) if score.score_5  != nil
-        total_points += calc_stableford(score.score_6,  4, calc_shots_on_hole(score.hc,  1)) if score.score_6  != nil
-        total_points += calc_stableford(score.score_7,  3, calc_shots_on_hole(score.hc, 13)) if score.score_7  != nil
-        total_points += calc_stableford(score.score_8,  4, calc_shots_on_hole(score.hc, 11)) if score.score_8  != nil
-        total_points += calc_stableford(score.score_9,  4, calc_shots_on_hole(score.hc,  3)) if score.score_9  != nil
-        total_points += calc_stableford(score.score_10, 3, calc_shots_on_hole(score.hc, 16)) if score.score_10 != nil
-        total_points += calc_stableford(score.score_11, 4, calc_shots_on_hole(score.hc,  8)) if score.score_11 != nil
-        total_points += calc_stableford(score.score_12, 4, calc_shots_on_hole(score.hc, 12)) if score.score_12 != nil
-        total_points += calc_stableford(score.score_13, 3, calc_shots_on_hole(score.hc, 18)) if score.score_13 != nil
-        total_points += calc_stableford(score.score_14, 4, calc_shots_on_hole(score.hc,  2)) if score.score_14 != nil
-        total_points += calc_stableford(score.score_15, 3, calc_shots_on_hole(score.hc, 14)) if score.score_15 != nil
-        total_points += calc_stableford(score.score_16, 5, calc_shots_on_hole(score.hc,  6)) if score.score_16 != nil
-        total_points += calc_stableford(score.score_17, 5, calc_shots_on_hole(score.hc, 10)) if score.score_17 != nil
-        total_points += calc_stableford(score.score_18, 4, calc_shots_on_hole(score.hc,  4)) if score.score_18 != nil
+        total_points += calc_stableford(score.score_1 ,  course.par_1 , calc_shots_on_hole(score.hc,  course.si_1 )) if score.score_1  != nil && course.si_1  != nil
+        total_points += calc_stableford(score.score_2 ,  course.par_2 , calc_shots_on_hole(score.hc,  course.si_2 )) if score.score_2  != nil && course.si_2  != nil
+        total_points += calc_stableford(score.score_3 ,  course.par_3 , calc_shots_on_hole(score.hc,  course.si_3 )) if score.score_3  != nil && course.si_3  != nil
+        total_points += calc_stableford(score.score_4 ,  course.par_4 , calc_shots_on_hole(score.hc,  course.si_4 )) if score.score_4  != nil && course.si_4  != nil
+        total_points += calc_stableford(score.score_5 ,  course.par_5 , calc_shots_on_hole(score.hc,  course.si_5 )) if score.score_5  != nil && course.si_5  != nil
+        total_points += calc_stableford(score.score_6 ,  course.par_6 , calc_shots_on_hole(score.hc,  course.si_6 )) if score.score_6  != nil && course.si_6  != nil
+        total_points += calc_stableford(score.score_7 ,  course.par_7 , calc_shots_on_hole(score.hc,  course.si_7 )) if score.score_7  != nil && course.si_7  != nil
+        total_points += calc_stableford(score.score_8 ,  course.par_8 , calc_shots_on_hole(score.hc,  course.si_8 )) if score.score_8  != nil && course.si_8  != nil
+        total_points += calc_stableford(score.score_9 ,  course.par_9 , calc_shots_on_hole(score.hc,  course.si_9 )) if score.score_9  != nil && course.si_9  != nil
+        total_points += calc_stableford(score.score_10,  course.par_10, calc_shots_on_hole(score.hc,  course.si_10)) if score.score_10 != nil && course.si_10 != nil
+        total_points += calc_stableford(score.score_11,  course.par_11, calc_shots_on_hole(score.hc,  course.si_11)) if score.score_11 != nil && course.si_11 != nil
+        total_points += calc_stableford(score.score_12,  course.par_12, calc_shots_on_hole(score.hc,  course.si_12)) if score.score_12 != nil && course.si_12 != nil
+        total_points += calc_stableford(score.score_13,  course.par_13, calc_shots_on_hole(score.hc,  course.si_13)) if score.score_13 != nil && course.si_13 != nil
+        total_points += calc_stableford(score.score_14,  course.par_14, calc_shots_on_hole(score.hc,  course.si_14)) if score.score_14 != nil && course.si_14 != nil
+        total_points += calc_stableford(score.score_15,  course.par_15, calc_shots_on_hole(score.hc,  course.si_15)) if score.score_15 != nil && course.si_15 != nil
+        total_points += calc_stableford(score.score_16,  course.par_16, calc_shots_on_hole(score.hc,  course.si_16)) if score.score_16 != nil && course.si_16 != nil
+        total_points += calc_stableford(score.score_17,  course.par_17, calc_shots_on_hole(score.hc,  course.si_17)) if score.score_17 != nil && course.si_17 != nil
+        total_points += calc_stableford(score.score_18,  course.par_18, calc_shots_on_hole(score.hc,  course.si_18)) if score.score_18 != nil && course.si_18 != nil
       end      
       return (total_points)
     end

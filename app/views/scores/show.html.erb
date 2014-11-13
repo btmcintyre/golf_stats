@@ -9,7 +9,7 @@
     <h5>Scores (<%= @user.scores.count %>)</h5>
     <ol class="scores">
       
-      <table class="table table-bordered table-condensed">
+      <table class="table table-bordered table-condensed" style="width: 600px">
         <tr>
           <th>Date</th>
           <th>HC</th>
@@ -28,7 +28,7 @@
             <td><%= score.score_date.strftime("%d/%m/%y") %></td>
             <td><%= score.hc %></td>
             <td><%= @presenter.total_score(score) %></td>      
-            <td><%= @presenter.total_points(score) %></td>      
+            <td><%= @presenter.total_points(score, @course) %></td>      
             <td><%= @presenter.total_putts(score) %></td>      
             <td><%= @presenter.total_fairways(score) %></td>      
             <td><%= @presenter.total_greens(score) %></td> 
