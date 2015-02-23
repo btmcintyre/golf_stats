@@ -35,6 +35,6 @@ class ChangeFairwayGreen < ActiveRecord::Migration
 		change_column :scores, :greens_15, 'boolean USING CAST(greens_15 AS boolean)'
 		change_column :scores, :greens_16, 'boolean USING CAST(greens_16 AS boolean)'
 		change_column :scores, :greens_17, 'boolean USING CAST(greens_17 AS boolean)'
-		change_column :scores, :greens_18, 'boolean USING CAST(greens_19 AS boolean)'
+		change_column :scores, :greens_18, 'boolean USING CAST(greens_18 AS boolean)'
   end
 end
