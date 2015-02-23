@@ -5,15 +5,15 @@
 		<%= render 'shared/error_messages', object: f.object %>
 		
 
-		<div class="form-group form-group-sm">
+		<div class="form-group">
       <%= f.label :name, "Course Name:" %>
       <%= f.text_field :name, class: "form-control", id: "name", placeholder: "Course Name" %>
     </div>
 		</p>
 
 	  
-	  <div class = "form-group-score-input form-group-sm">
-			<table class="table table-bordered table-condensed" style="width: 300px">
+	  <div class = "form-group-score-input">
+		<table class="table table-bordered table-condensed" style="width: 300px">
 	      <tr>
 	        <th style="width: 60px">Hole </th>
 	        <th style="width: 40px">Par</th>
@@ -23,7 +23,9 @@
 	      <% for i in 1..18 do %> 
 					<tr>
 						<td>
-							<label>Hole <%=i%></label>
+						
+								<label>Hole <%=i%></label>
+								
 						</td>
 						<td>
 							<%= f.number_field ("par_" + i.to_s).to_sym, class: "form-control", placeholder: "Par" %>

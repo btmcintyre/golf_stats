@@ -2,18 +2,18 @@
 	<%= form_for(@score , html:{class: "form-inline", role: "form"}) do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
 		
-		<div class="form-group form-group-sm">
+		<div class="form-group">
       <%= f.label :score_date, "Score Date:" %>
       <%= f.date_field :score_date, class: "form-control", id: "date", placeholder: "Date" %>
     </div>
     
-    <div class="form-group form-group-sm">
+    <div class="form-group">
       <%= f.label :hc, "Handicap:" %>
       <%= f.number_field :hc, class: "form-control", id: "handicap", placeholder: "" %>
     </div>
 		<p></p>
 
-		<div class = "form-group-score-input form-group-sm">
+		<div class = "form-group-score-input">
 			<table class="table table-bordered table-condensed" style="width: 900px">
 				<tr>
 					<th style="width: 80px">
