@@ -2,7 +2,11 @@ GolfStats::Application.routes.draw do
   resources :users  
   resources :sessions, only: [:new, :create, :destroy]
   #resources :scores, only:   [:create, :destroy]
-  resources :scores
+  resources :scores do
+     member do
+      patch :score_calcs
+    end
+  end
   resources :courses
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'

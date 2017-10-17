@@ -1,40 +1,39 @@
 class ChangeFairwayGreen < ActiveRecord::Migration
   def change
-  	change_column :scores, :fairways_1, 'boolean USING CAST(fairways_1 AS boolean)'
-  	change_column :scores, :fairways_2, 'boolean USING CAST(fairways_2 AS boolean)'
-  	change_column :scores, :fairways_3, 'boolean USING CAST(fairways_3 AS boolean)'
-  	change_column :scores, :fairways_4, 'boolean USING CAST(fairways_4 AS boolean)'
-  	change_column :scores, :fairways_5, 'boolean USING CAST(fairways_5 AS boolean)'
-  	change_column :scores, :fairways_6, 'boolean USING CAST(fairways_6 AS boolean)'
-  	change_column :scores, :fairways_7, 'boolean USING CAST(fairways_7 AS boolean)'
-  	change_column :scores, :fairways_8, 'boolean USING CAST(fairways_8 AS boolean)'
-  	change_column :scores, :fairways_9, 'boolean USING CAST(fairways_9 AS boolean)'
-  	change_column :scores, :fairways_10, 'boolean USING CAST(fairways_10 AS boolean)'
-  	change_column :scores, :fairways_11, 'boolean USING CAST(fairways_11 AS boolean)'
-  	change_column :scores, :fairways_12, 'boolean USING CAST(fairways_12 AS boolean)'
-  	change_column :scores, :fairways_13, 'boolean USING CAST(fairways_13 AS boolean)'
-  	change_column :scores, :fairways_14, 'boolean USING CAST(fairways_14 AS boolean)'
-  	change_column :scores, :fairways_15, 'boolean USING CAST(fairways_15 AS boolean)'
-  	change_column :scores, :fairways_16, 'boolean USING CAST(fairways_16 AS boolean)'
-  	change_column :scores, :fairways_17, 'boolean USING CAST(fairways_17 AS boolean)'
-  	change_column :scores, :fairways_18, 'boolean USING CAST(fairways_18 AS boolean)'
-  	change_column :scores, :greens_1, 'boolean USING CAST(greens_1 AS boolean)'
-		change_column :scores, :greens_2, 'boolean USING CAST(greens_2 AS boolean)'
-		change_column :scores, :greens_3, 'boolean USING CAST(greens_3 AS boolean)'
-		change_column :scores, :greens_4, 'boolean USING CAST(greens_4 AS boolean)'
-		change_column :scores, :greens_5, 'boolean USING CAST(greens_5 AS boolean)'
-		change_column :scores, :greens_6, 'boolean USING CAST(greens_6 AS boolean)'
-		change_column :scores, :greens_7, 'boolean USING CAST(greens_7 AS boolean)'
-		change_column :scores, :greens_8, 'boolean USING CAST(greens_8 AS boolean)'
-		change_column :scores, :greens_9, 'boolean USING CAST(greens_9 AS boolean)'
-		change_column :scores, :greens_10, 'boolean USING CAST(greens_10 AS boolean)'
-		change_column :scores, :greens_11, 'boolean USING CAST(greens_11 AS boolean)'
-		change_column :scores, :greens_12, 'boolean USING CAST(greens_12 AS boolean)'
-		change_column :scores, :greens_13, 'boolean USING CAST(greens_13 AS boolean)'
-		change_column :scores, :greens_14, 'boolean USING CAST(greens_14 AS boolean)'
-		change_column :scores, :greens_15, 'boolean USING CAST(greens_15 AS boolean)'
-		change_column :scores, :greens_16, 'boolean USING CAST(greens_16 AS boolean)'
-		change_column :scores, :greens_17, 'boolean USING CAST(greens_17 AS boolean)'
-		change_column :scores, :greens_18, 'boolean USING CAST(greens_19 AS boolean)'
+  	change_column :scores, :fairways_1, :boolean
+  	change_column :scores, :fairways_2, :boolean
+  	change_column :scores, :fairways_3, :boolean
+  	change_column :scores, :fairways_5, :boolean
+  	change_column :scores, :fairways_6, :boolean
+  	change_column :scores, :fairways_7, :boolean
+  	change_column :scores, :fairways_8, :boolean
+  	change_column :scores, :fairways_9, :boolean
+  	change_column :scores, :fairways_10, :boolean
+  	change_column :scores, :fairways_11, :boolean
+  	change_column :scores, :fairways_12, :boolean
+  	change_column :scores, :fairways_13, :boolean
+  	change_column :scores, :fairways_14, :boolean
+  	change_column :scores, :fairways_15, :boolean
+  	change_column :scores, :fairways_16, :boolean
+  	change_column :scores, :fairways_17, :boolean
+  	change_column :scores, :fairways_18, :boolean
+  	change_column :scores, :greens_1, :boolean
+		change_column :scores, :greens_2, :boolean
+		change_column :scores, :greens_3, :boolean
+		change_column :scores, :greens_4, :boolean
+		change_column :scores, :greens_5, :boolean
+		change_column :scores, :greens_6, :boolean
+		change_column :scores, :greens_7, :boolean
+		change_column :scores, :greens_8, :boolean
+		change_column :scores, :greens_9, :boolean
+		change_column :scores, :greens_10, :boolean
+		change_column :scores, :greens_11, :boolean
+		change_column :scores, :greens_12, :boolean
+		change_column :scores, :greens_13, :boolean
+		change_column :scores, :greens_14, :boolean
+		change_column :scores, :greens_15, :boolean
+		change_column :scores, :greens_16, :boolean
+		change_column :scores, :greens_17, :boolean
+		change_column :scores, :greens_18, :boolean
   end
 end

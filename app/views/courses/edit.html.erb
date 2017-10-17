@@ -23,9 +23,7 @@
 	      <% for i in 1..18 do %> 
 					<tr>
 						<td>
-						
-								<label>Hole <%=i%></label>
-								
+							<label>Hole <%=i%></label>	
 						</td>
 						<td>
 							<%= f.number_field ("par_" + i.to_s).to_sym, class: "form-control", placeholder: "Par" %>

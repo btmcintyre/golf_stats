@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.4'
+ruby '2.3.1'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.8'
@@ -9,10 +9,15 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'pry'
+gem 'activerecord-session_store'
+
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
-  gem 'rspec-rails', '2.13.1'
+  # gem 'sqlite3', '1.3.9'
+  gem 'mysql2', '~> 0.3.18'
+  #gem 'mysql2', '>= 0.4.9', '< 0.5'
+  gem 'rspec-rails'
   # The following optional lines are part of the advanced setup.
   # gem 'guard-rspec', '2.5.0'
   # gem 'spork-rails', '4.0.0'

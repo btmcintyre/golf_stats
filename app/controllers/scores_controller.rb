@@ -1,7 +1,44 @@
 class ScoresController < ApplicationController
-  before_action :signed_in_user
+  before_action :signed_in_user, :except => :score_calcs
+
+
+
+  def score_calcs
+    @user   = User.find(params[:id])
+    @course = @user.course
+    presenter = ScorePresenters::GolfScorePresenter.new 
+
+    #update session view of the score card with the changes from the ajax call
+    @new_score = session[:new_score]
+    if params[:field_id].match('score_score') 
+      @new_score["score_#{params[:hole_number]}".to_sym] = params[:score].to_i
+    elsif params[:field_id].match('score_putts') 
+      @new_score["putts_#{params[:hole_number]}".to_sym] = params[:score].to_i
+    elsif params[:field_id].match('score_fairways') 
+      @new_score["fairways_#{params[:hole_number]}".to_sym] = params[:checkbox_state]
+    elsif params[:field_id].match('score_greens') 
+      @new_score["greens_#{params[:hole_number]}".to_sym] = params[:checkbox_state]  
+    end
+    @new_score[:hc] = params[:handicap]
+
+    @stableford_pts = Array.new(18) { |i|  presenter.calc_stableford(@new_score["score_#{(i+1)}".to_sym], eval("@course.par_" + (i+1).to_s).to_i, 
+                                           presenter.calc_shots_on_hole(params[:handicap].to_i,  eval("@course.si_" + (i+1).to_s).to_i))} 
+    
+
+    #instance variables used in the score_calc_js that updates the view
+    @score_totals     = presenter.total_score(@new_score)
+    @putts_totals     = presenter.total_putts(@new_score)
+    @fairways_totals  = presenter.total_fairways(@new_score)
+    @greens_totals    = presenter.total_greens(@new_score)
+    @points_totals    = presenter.total_points(@new_score, @course)
+
+    respond_to do |format|
+      format.js { }
+    end
+  end
 
   def index
+
   end
 
   def show
@@ -13,6 +50,15 @@ class ScoresController < ApplicationController
 
   def new
     @score = Score.new
+    initialise_score
+    @user   = current_user
+    logger.debug(@score.inspect)
+    logger.debug(@user.inspect)
+    @course = @user.course
+    logger.debug(@course.inspect)
+    #@score = current_user.scores.find(params[:id])
+    @presenter = ScorePresenters::GolfScorePresenter.new 
+    
   end
 
   def create
@@ -26,10 +72,15 @@ class ScoresController < ApplicationController
   end
   
   def edit
+    @user   = User.find(params[:id])
+    @course = @user.course
     @score = current_user.scores.find(params[:id])
+    @presenter = ScorePresenters::GolfScorePresenter.new 
+    session[:new_score] = @score
   end
   
   def update
+    #binding.pry
     @score = current_user.scores.find(params[:id])
     if @score.update_attributes(score_params)
      flash[:notice] = "Score updated"
@@ -67,6 +118,29 @@ class ScoresController < ApplicationController
                                                       :score_16, :fairways_16, :greens_16, :putts_16,
                                                       :score_17, :fairways_17, :greens_17, :putts_17,
                                                       :score_18, :fairways_18, :greens_18, :putts_18)
+    end
+
+    def initialise_score
+      @score.score_date = Date.today
+      @score.hc = 0
+      @score.score_1 = 0
+      @score.score_2 = 0
+      @score.score_3 = 0
+      @score.score_4 = 0
+      @score.score_5 = 0
+      @score.score_6 = 0
+      @score.score_7 = 0
+      @score.score_8 = 0
+      @score.score_9 = 0
+      @score.score_10 = 0
+      @score.score_11 = 0
+      @score.score_12 = 0
+      @score.score_13 = 0
+      @score.score_14 = 0
+      @score.score_15 = 0
+      @score.score_16 = 0
+      @score.score_17 = 0
+      @score.score_18 = 0
     end
 
 end

@@ -1,37 +1,44 @@
 <tr>
 	<td>
-		<label>Hole <%=i%>:</label>
+		<label><%=i%>:</label>
 	</td>
 	<td>
-		<%= f.number_field ("score_" + i.to_s).to_sym, class: "form-control", placeholder: "Score" %>
+		<%= f.number_field ("score_" + i.to_s).to_sym, class: "form-control", placeholder: "Score", hn: i %>
 	</td>
 	<td>
-		<%= f.number_field ("putts_" + i.to_s).to_sym, class: "form-control", placeholder: "Putts" %>
+		<%= f.number_field ("putts_" + i.to_s).to_sym, class: "form-control", placeholder: "Putts", hn: i%>
 	</td>
 	<td>
-		<%= f.check_box ("fairways_" + i.to_s).to_sym, class: "form-control" , placeholder: "F"%>
+		<%= f.check_box ("fairways_" + i.to_s).to_sym, class: "form-control" , placeholder: "F", hn: i%>
 	</td>
 	<td>
-		<%= f.check_box ("greens_" + i.to_s).to_sym, class: "form-control" , placeholder: "G"%>
+		<%= f.check_box ("greens_" + i.to_s).to_sym, class: "form-control" , placeholder: "G", hn: i%>
 	</td>
+	<td id="pts_<%=i.to_s%>">		
+		<%= render partial: "pts", locals: {:score => eval("@score.score_" + i.to_s), :par => eval("@course.par_" + i.to_s), :hc => @score.hc, :stroke_index => eval("@course.si_" + i.to_s)} %>
+	</td>
+
 
 	<td>
 	</td>
 
 	<td>
-		<label>Hole <%=(i+9)%>:</label>
+		<label><%=(i+9)%>:</label>
 	</td>
 	<td>
-		<%= f.number_field ("score_" + (i+9).to_s).to_sym, class: "form-control", placeholder: "Score" %>
+		<%= f.number_field ("score_" + (i+9).to_s).to_sym, class: "form-control", placeholder: "Score", hn: (i+9) %>
+	</td> 
+	<td>
+		<%= f.number_field ("putts_" + (i+9).to_s).to_sym, class: "form-control", placeholder: "Putts", hn: (i+9)%>
 	</td>
 	<td>
-		<%= f.number_field ("putts_" + (i+9).to_s).to_sym, class: "form-control", placeholder: "Putts" %>
+		<%= f.check_box ("fairways_" + (i+9).to_s).to_sym, class: "form-control" , placeholder: "F", hn: (i+9)%>
 	</td>
 	<td>
-		<%= f.check_box ("fairways_" + (i+9).to_s).to_sym, class: "form-control" , placeholder: "F"%>
+		<%= f.check_box ("greens_" + (i+9).to_s).to_sym, class: "form-control" , placeholder: "G", hn: (i+9)%>
 	</td>
-	<td>
-		<%= f.check_box ("greens_" + (i+9).to_s).to_sym, class: "form-control" , placeholder: "G"%>
+	<td id="pts_<%=(i+9).to_s%>">
+			<%= render partial: "pts", locals: {:score => eval("@score.score_" + (i+9).to_s), :par => eval("@course.par_" + (i+9).to_s), :hc => @score.hc,
+																				  :stroke_index => eval("@course.si_" + (i+9).to_s)} %>
 	</td>
-
 </tr>

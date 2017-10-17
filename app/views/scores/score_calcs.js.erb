@@ -1,0 +1,34 @@
+//update points for each hole
+var myJsArray = <%=@stableford_pts.to_json%>;
+var i;
+for (i = 0; i <= myJsArray.length; ++i) {
+	$(('#'+'pts_' + (i+1).toString())).text(myJsArray[i]);
+}
+
+// update total for score
+$('#'+'score_first_nine').text('<%=@score_totals[:first_nine_score]%>');
+$('#'+'score_second_nine').text('<%=@score_totals[:second_nine_score]%>');
+$('#'+'score_total').text('<%=@score_totals[:total_score]%>');
+
+// update total for points
+$('#'+'pts_first_nine').text('<%=@points_totals[:first_nine_points]%>');
+$('#'+'pts_second_nine').text('<%=@points_totals[:second_nine_points]%>');
+$('#'+'pts_total').text('<%=@points_totals[:total_points]%>');
+
+// update total for putts
+$('#'+'putts_first_nine').text('<%=@putts_totals[:first_nine_putts]%>');
+$('#'+'putts_second_nine').text('<%=@putts_totals[:second_nine_putts]%>');
+$('#'+'putts_total').text('<%=@putts_totals[:total_putts]%>');
+
+
+// update total for fairways
+$('#'+'fairways_first_nine').text('<%=@fairways_totals[:first_nine_fairways]%>');
+$('#'+'fairways_second_nine').text('<%=@fairways_totals[:second_nine_fairways]%>');
+$('#'+'fairways_total').text('<%=@fairways_totals[:total_fairways]%>');
+
+// update total for greens
+$('#'+'greens_first_nine').text('<%=@greens_totals[:first_nine_greens]%>');
+$('#'+'greens_second_nine').text('<%=@greens_totals[:second_nine_greens]%>');
+$('#'+'greens_total').text('<%=@greens_totals[:total_greens]%>');
+
+

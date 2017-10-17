@@ -27,11 +27,11 @@
           <tr>
             <td><%= score.score_date.strftime("%d/%m/%y") %></td>
             <td><%= score.hc %></td>
-            <td><%= @presenter.total_score(score) %></td>      
-            <td><%= @presenter.total_points(score, @course) %></td>      
-            <td><%= @presenter.total_putts(score) %></td>      
-            <td><%= @presenter.total_fairways(score) %></td>      
-            <td><%= @presenter.total_greens(score) %></td> 
+            <td><%= @presenter.total_score(score)[:total_score] %></td>      
+            <td><%= @presenter.total_points(score, @course)[:total_points] %></td>      
+            <td><%= @presenter.total_putts(score)[:total_putts] %></td>      
+            <td><%= @presenter.total_fairways(score)[:total_fairways] %></td>      
+            <td><%= @presenter.total_greens(score)[:total_greens] %></td> 
             <td><%= link_to "Edit", edit_score_path(score) %> / <%= link_to "Delete", score, method: :delete,
                                   data: { confirm: "Are you absolutely sure?" } %></td> 
             

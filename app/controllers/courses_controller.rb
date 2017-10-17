@@ -29,6 +29,7 @@ class CoursesController < ApplicationController
   def update
     @user   = User.find(params[:id])
     @course = @user.course
+
     if @course.update_attributes(course_params)
       flash[:notice] = "Course updated"
       redirect_to course_path(current_user)
@@ -42,23 +43,23 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:name, :user_id,
                                             :si_1,  :par_1, 
-      																		  :s1_2,  :par_2, 
-      																		  :s1_3,  :par_3, 
-      																		  :s1_4,  :par_4, 
-      																		  :s1_5,  :par_5, 
-      																		  :s1_6,  :par_6, 
-      																		  :s1_7,  :par_7, 
-      																		  :s1_8,  :par_8, 
-      																		  :s1_9,  :par_9, 
-      																		  :s1_10, :par_10,
-      																		  :s1_11, :par_11,
-      																		  :s1_12, :par_12,
-      																		  :s1_13, :par_13,
-      																		  :s1_14, :par_14,
-      																		  :s1_15, :par_15,
-      																		  :s1_16, :par_16,
-      																		  :s1_17, :par_17,
-      																		  :s1_18, :par_18)
+      																		  :si_2,  :par_2, 
+      																		  :si_3,  :par_3, 
+      																		  :si_4,  :par_4, 
+      																		  :si_5,  :par_5, 
+      																		  :si_6,  :par_6, 
+      																		  :si_7,  :par_7, 
+      																		  :si_8,  :par_8, 
+      																		  :si_9,  :par_9, 
+      																		  :si_10, :par_10,
+      																		  :si_11, :par_11,
+      																		  :si_12, :par_12,
+      																		  :si_13, :par_13,
+      																		  :si_14, :par_14,
+      																		  :si_15, :par_15,
+      																		  :si_16, :par_16,
+      																		  :si_17, :par_17,
+      																		  :si_18, :par_18)
     end
 
 end
