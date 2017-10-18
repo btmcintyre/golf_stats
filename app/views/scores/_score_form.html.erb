@@ -4,12 +4,12 @@
 
 	<div class="form-group">
 		<%= f.label :score_date, "Score Date:" %>
-		<%= f.date_field :score_date, class: "form-control", id: "date", placeholder: "Date" %>
+		<%= f.date_field :score_date, class: "form-control", id: "date", placeholder: "Date", autofocus: true, tabindex: 1%>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :hc, "Handicap:" %>
-		<%= f.number_field :hc, class: "form-control", id: "handicap", placeholder: "" %>
+		<%= f.number_field :hc, class: "form-control", id: "handicap", placeholder: "", tabindex: 2%>
 	</div>
 	<p></p>
 
@@ -60,8 +60,11 @@
 			</tr>
 
 
+			<%tab_order = 3%>
+			<%tab_order_second_nine = +36%>
 			<% for i in 1..9 do %>
-				<%= render partial: "score_row", locals: { f: f, i: i } %>
+				<%= render partial: "score_row", locals: { f: f, i: i, tab_order: tab_order} %>
+				<%tab_order = tab_order + 4%>
 			<% end %>
 
 
@@ -165,7 +168,7 @@
 		</table>
 	</div>
 
-	<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+	<%= f.submit "Save", class: "btn btn-large btn-primary", tabindex: 75%>
 	<%= link_to "Cancel", score_path(current_user), {:class=>"btn btn-default"} %>
 
 	<% end %>
