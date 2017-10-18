@@ -32,16 +32,6 @@ class ScoresController < ApplicationController
     @greens_totals    = presenter.total_greens(@new_score)
     @points_totals    = presenter.total_points(@new_score, @course)
 
-    logger.debug('============================')
-    logger.debug(@score_totals.inspect)
-    logger.debug(@putts_totals.inspect)
-    logger.debug(@fairways_totals.inspect)
-    logger.debug(@greens_totals.inspect)
-    logger.debug(@points_totals.inspect)
-    logger.debug(@new_score.inspect)
-    logger.debug(@stableford_pts.inspect)
-    logger.debug('============================')
-
     respond_to do |format|
       format.js { }
     end
