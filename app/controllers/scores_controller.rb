@@ -44,8 +44,13 @@ class ScoresController < ApplicationController
   def show
     @user   = User.find(params[:id])
     @course = @user.course
-    @scores = @user.scores.paginate(page: params[:page], per_page: 12)
+    @scores = @user.scores.paginate(page: params[:page], per_page: 50)
     @presenter = ScorePresenters::GolfScorePresenter.new 
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @scores.to_csv, filename: "scores-#{Date.today}.csv" }
+    end
   end
 
   def new

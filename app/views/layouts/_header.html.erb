@@ -21,6 +21,7 @@
                 <li><%= link_to "Profile", user_path(current_user) %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li><%= link_to "Course", course_path(current_user) %></li>
+                <li><%= link_to "Export Scores", score_path(current_user, format: :csv) %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
               </ul>

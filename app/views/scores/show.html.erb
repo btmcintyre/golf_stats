@@ -4,7 +4,6 @@
   <%= link_to "Enter New Score", new_score_path, class: "btn btn-success align-center" %>
 </div>
 
-
   <% if @user.scores.any? %>
     <h5>Scores (<%= @user.scores.count %>)</h5>
     <ol class="scores">
@@ -18,8 +17,6 @@
           <th>Putts</th>
           <th>Fairways</th>
           <th>Greens</th>
-          
-                    
         </tr>
    
         <% @scores.each do |score| %>
@@ -35,16 +32,13 @@
             <td><%= link_to "Edit", edit_score_path(score) %> / <%= link_to "Delete", score, method: :delete,
                                   data: { confirm: "Are you absolutely sure?" } %></td> 
             
-            <!--<td><%= score.attributes %></td>-->
-
-
           </tr>
         <% end %>
       </table>
  
     </ol>
     <div class="std_pagination">
-      <%= will_paginate @scores %>
+      <%= will_paginate @scores%>
     </div>
   <% end %>
 
