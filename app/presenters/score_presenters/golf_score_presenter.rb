@@ -156,7 +156,7 @@ module ScorePresenters
 
 
     def calc_stableford(hole_score, hole_par, num_shots)
-      if (hole_score != nil) && (hole_par != nil) && (num_shots != nil) 
+      if (hole_score != nil) && (hole_par != nil) && (num_shots != nil) && (hole_score > 0) && ((hole_score - num_shots) - hole_par < 2)
        return hole_par - hole_score + 2 + num_shots
       else
         return 0

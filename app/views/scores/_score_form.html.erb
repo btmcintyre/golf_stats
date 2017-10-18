@@ -165,20 +165,19 @@
 		</table>
 	</div>
 
+	<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+	<%= link_to "Cancel", score_path(current_user), {:class=>"btn btn-default"} %>
+
+	<% end %>
+
 	<script>
 		$("[id*='score_score'], [id*='score_putts'], [id*='score_fairways'], [id*='score_greens'], [id='handicap']").change(function(){
 			$.ajax({
-				url: "<%= Rails.application.routes.url_helpers.score_calcs_score_path(:id => @score.id) %>",
+				url: "<%= Rails.application.routes.url_helpers.score_calcs_score_path(:id => 0) %>",
 				type: "patch",
 				data: {'field_id': $(this).attr('id'), 'score': $(this).val(), 'checkbox_state': $(this).is(":checked"), 'hole_number': $(this).attr("hn"), 'handicap': $("[id='handicap']").val()}
 			});
 		});
 	</script>
-
-
-	<%= f.submit "Save", class: "btn btn-large btn-primary" %>
-	<%= link_to "Cancel", score_path(current_user), {:class=>"btn btn-default"} %>
-
-	<% end %>
 </div>
 

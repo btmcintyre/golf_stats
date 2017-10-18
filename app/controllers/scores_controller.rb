@@ -4,7 +4,7 @@ class ScoresController < ApplicationController
 
 
   def score_calcs
-    @user   = User.find(params[:id])
+    @user   = current_user
     @course = @user.course
     presenter = ScorePresenters::GolfScorePresenter.new 
 
@@ -32,6 +32,16 @@ class ScoresController < ApplicationController
     @greens_totals    = presenter.total_greens(@new_score)
     @points_totals    = presenter.total_points(@new_score, @course)
 
+    logger.debug('============================')
+    logger.debug(@score_totals.inspect)
+    logger.debug(@putts_totals.inspect)
+    logger.debug(@fairways_totals.inspect)
+    logger.debug(@greens_totals.inspect)
+    logger.debug(@points_totals.inspect)
+    logger.debug(@new_score.inspect)
+    logger.debug(@stableford_pts.inspect)
+    logger.debug('============================')
+
     respond_to do |format|
       format.js { }
     end
@@ -51,14 +61,10 @@ class ScoresController < ApplicationController
   def new
     @score = Score.new
     initialise_score
+    session[:new_score] = @score
     @user   = current_user
-    logger.debug(@score.inspect)
-    logger.debug(@user.inspect)
     @course = @user.course
-    logger.debug(@course.inspect)
-    #@score = current_user.scores.find(params[:id])
     @presenter = ScorePresenters::GolfScorePresenter.new 
-    
   end
 
   def create
@@ -72,7 +78,7 @@ class ScoresController < ApplicationController
   end
   
   def edit
-    @user   = User.find(params[:id])
+    @user   = current_user
     @course = @user.course
     @score = current_user.scores.find(params[:id])
     @presenter = ScorePresenters::GolfScorePresenter.new 
