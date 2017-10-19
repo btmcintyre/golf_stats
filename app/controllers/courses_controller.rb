@@ -7,6 +7,8 @@ class CoursesController < ApplicationController
   def show
     @user   = User.find(params[:id])
     @course = @user.course
+    @scores = @user.scores
+    @presenter = ScorePresenters::GolfStatsPresenter.new 
   end
 
   def create

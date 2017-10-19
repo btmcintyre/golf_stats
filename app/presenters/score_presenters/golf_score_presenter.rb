@@ -1,4 +1,5 @@
 module ScorePresenters
+
   class GolfScorePresenter
     public
  
@@ -183,4 +184,5 @@ module ScorePresenters
       end
     end
   end
+
 end

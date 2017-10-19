@@ -11,6 +11,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'pry'
 gem 'activerecord-session_store'
+gem 'byebug', '~> 9.0', '>= 9.0.5'
 
 
 group :development, :test do

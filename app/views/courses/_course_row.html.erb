@@ -2,4 +2,8 @@
   <td><%=i%></td>
   <td><%= eval("@course.par_" + i.to_s) %></td>
   <td><%= eval("@course.si_" + i.to_s) %></td>
+  <td align="right"><%= @presenter.average_score(@scores, i) %></td>
+  <td align="right"><%= @presenter.average_putts(@scores, i) %></td>
+  <td align="right"><%= @presenter.average_fairways(@scores, i) %></td>
+  <td align="right"><%= @presenter.average_greens(@scores, i) %></td>
 </tr>
