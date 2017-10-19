@@ -142,6 +142,25 @@ class ScoresController < ApplicationController
       @score.score_16 = 0
       @score.score_17 = 0
       @score.score_18 = 0
+
+      @score.putts_1 = 0
+      @score.putts_2 = 0
+      @score.putts_3 = 0
+      @score.putts_4 = 0
+      @score.putts_5 = 0
+      @score.putts_6 = 0
+      @score.putts_7 = 0
+      @score.putts_8 = 0
+      @score.putts_9 = 0
+      @score.putts_10 = 0
+      @score.putts_11 = 0
+      @score.putts_12 = 0
+      @score.putts_13 = 0
+      @score.putts_14 = 0
+      @score.putts_15 = 0
+      @score.putts_16 = 0
+      @score.putts_17 = 0
+      @score.putts_18 = 0
     end
 
 end

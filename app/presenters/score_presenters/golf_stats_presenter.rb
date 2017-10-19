@@ -6,7 +6,9 @@ module ScorePresenters
     def average_score(scores, i)
       total = 0
       scores.each do |score|
-        total = total + eval('score.score_' + i.to_s)
+        if eval('score.score_' + i.to_s) != nil
+          total = total + eval('score.score_' + i.to_s)
+        end
       end
       return '%.2f' % (total.fdiv(scores.count))
     end
@@ -14,7 +16,9 @@ module ScorePresenters
     def average_putts(scores, i)
       total = 0
       scores.each do |score|
-        total = total + eval('score.putts_' + i.to_s)
+        if eval('score.putts_' + i.to_s) != nil
+          total = total + eval('score.putts_' + i.to_s)
+        end
       end
       return '%.2f' % (total.fdiv(scores.count))
     end
