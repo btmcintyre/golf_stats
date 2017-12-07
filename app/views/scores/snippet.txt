@@ -1,0 +1,166 @@
+
+
+<div class="score-input__score1-9__input">
+	<%= f.number_field ("score_" + i.to_s).to_sym, class: "bm123", placeholder: "Score", hn: i, tabindex: tab_order%>
+</div>
+
+		<div class="score-input__hole1-9__label">
+			<label>Hole XXXXXXX</label>
+		</div>
+		<div class="score-input__score1-9__label">
+			<label>Score</label>
+		</div>
+		<div class="score-input__putts1-9__label">
+			<label>Putts</label>
+		</div>
+		<div class="score-input__fairway1-9__label">
+			<label>Fairway</label>
+		</div>
+		<div class="score-input__green1-9__label">
+			<label>Green</label>
+		</div>
+		<div class="score-input__pts1-9__label">
+			<label>Pts 1</label>
+		</div>
+
+		<div class="score-input__hole9-10__label">
+			<label>Hole</label>
+		</div>
+		<div class="score-input__score9-10__label">
+			<label>Score</label>
+		</div>
+		<div class="score-input__putts9-10__label">
+			<label>Putts</label>
+		</div>
+		<div class="score-input__fairway9-10__label">
+			<label>Fairway</label>
+		</div>
+		<div class="score-input__green9-10__label">
+			<label>Green</label>
+		</div>
+		<div class="score-input__pts9-10__label">
+			<label>Pts 2</label>
+		</div>
+
+		<%tab_order = 3%>
+		<%tab_order_second_nine = +36%>
+		<% for i in 1..9 do %>
+			<%= render partial: "score_row", locals: { f: f, i: i, tab_order: tab_order} %>
+			<%tab_order = tab_order + 4%>
+		<% end %>
+	
+		<%= f.submit "Save", class: "", tabindex: 75%>
+		<%= link_to "Cancel", score_path(current_user), {:class=>""} %>
+
+			<div class="score-input__date">
+			<%= f.label :score_date, "Score Date:" %>
+			<%= f.date_field :score_date, class: "form-control", id: "date", placeholder: "Date", autofocus: true, tabindex: 1%>
+		</div>
+
+		<div class="score-input__hc">
+			<%= f.label :hc, "Handicap:" %>
+			<%= f.number_field :hc, class: "", id: "handicap", placeholder: "", tabindex: 2%>
+		</div>	
+
+
+	<%= form_for(@score , html:{class: "form-inline", role: "form"}) do |f| %>
+
+<%points_totals = @presenter.total_points(@score, @course)%>
+	<%score_totals = @presenter.total_score(@score)%>
+	<%putts_totals = @presenter.total_putts(@score)%>
+	<%fairways_totals = @presenter.total_fairways(@score)%>
+	<%greens_totals = @presenter.total_greens(@score)%>
+
+			<tr>
+				<td>
+					<label></label>
+				</td>
+				<td id="score_first_nine">
+					<label><%=score_totals[:first_nine_score]%></label>
+				</td>
+				<td id="putts_first_nine">
+					<label><%=putts_totals[:first_nine_putts]%></label>
+				</td>
+				<td id="fairways_first_nine">
+					<label><%=fairways_totals[:first_nine_fairways]%></label>
+				</td>
+				<td id="greens_first_nine">
+					<label><%=greens_totals[:first_nine_greens]%></label>
+				</td>
+				<td id="pts_first_nine">		
+					<label><%=points_totals[:first_nine_points]%></label>
+				</td>
+
+				<td>
+					<label>-</label>
+				</td>
+
+				<td>
+					<label></label>
+				</td>
+				<td id="score_second_nine">
+					<label><%=score_totals[:second_nine_score]%></label>
+				</td>
+				<td id="putts_second_nine">
+					<label><%=putts_totals[:second_nine_putts]%></label>
+				</td>
+				<td id="fairways_second_nine">
+					<label><%=fairways_totals[:second_nine_fairways]%></label>
+				</td>
+				<td id="greens_second_nine">
+					<label><%=greens_totals[:second_nine_greens]%></label>
+				</td>
+				<td id="pts_second_nine">		
+					<label><%=points_totals[:second_nine_points]%></label>
+				</td
+			</tr>
+
+			
+
+		<table class="table table-bordered table-condensed" style="width: 200px">
+			<tr>
+				<td>
+					<label>Total Score</label>
+				</td>
+				<td id="score_total">		
+					<label><%=score_totals[:total_score]%></label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label>Total Points</label>
+				</td>
+				<td id="pts_total">		
+					<label><%=points_totals[:total_points]%></label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label>Total Putts</label>
+				</td>
+				<td id="putts_total">		
+					<label><%=putts_totals[:total_putts]%></label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label>Total Fairways</label>
+				</td>
+				<td id="fairways_total">		
+					<label><%=fairways_totals[:total_fairways]%></label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label>Total Greens</label>
+				</td>
+				<td id="greens_total">		
+					<label><%=greens_totals[:total_greens]%></label>
+				</td>
+			</tr>
+		</table>
+	</div>

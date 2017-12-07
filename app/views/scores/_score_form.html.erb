@@ -1,186 +1,138 @@
-<div class = "container">
-	<%= form_for(@score , html:{class: "form-inline", role: "form"}) do |f| %>
+	
+<%= form_for(@score, :html => {:class => 'score-input', :id => ""}) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
+	
+	<%= f.label :score_date, "Score Date:", class: "score-input__date-label"  %>
+	<%= f.date_field :score_date, class: "score-input__date-input", id: "date", placeholder: "Date:", autofocus: true, tabindex: 1%>
 
-	<div class="form-group">
-		<%= f.label :score_date, "Score Date:" %>
-		<%= f.date_field :score_date, class: "form-control", id: "date", placeholder: "Date", autofocus: true, tabindex: 1%>
-	</div>
-
-	<div class="form-group">
-		<%= f.label :hc, "Handicap:" %>
-		<%= f.number_field :hc, class: "form-control", id: "handicap", placeholder: "", tabindex: 2%>
-	</div>
-	<p></p>
-
-	<div class = "form-group-score-input">
-		<table class="table table-bordered table-condensed" style="width: 900px">
-			<tr>
-				<th style="width: 80px">
-					<label>Hole</label>
-				</th>
-				<th style="width: 40px">
-					<label>Score</label>
-				</th>
-				<th style="width: 40px">
-					<label>Putts</label>
-				</th>
-				<th style="width: 40px">
-					<label>Fairway</label>
-				</th>
-				<th style="width: 40px">
-					<label>Green</label>
-				</td>
-				<th style="width: 40px">
-					<label>Pts</label>
-				</td>
-
-				<th style="width: 40px">
-					<label></label>
-				</td>
-				
-				<th style="width: 80px">
-					<label>Hole</label>
-				</th>
-				<th style="width: 40px">
-					<label>Score</label>
-				</th>
-				<th style="width: 40px">
-					<label>Putts</label>
-				</th>
-				<th style="width: 40px">
-					<label>Fairway</label>
-				</th>
-				<th style="width: 40px">
-					<label>Green</label>
-				</td>
-				<th style="width: 40px">
-					<label>Pts</label>
-				</td>
-			</tr>
+	<%= f.label :hc, "Handicap:", class: "score-input__hc-label"  %>
+	<%= f.number_field :hc, class: "score-input__hc-input", id: "handicap", placeholder: "Handicap:", tabindex: 2%>
+	
+	<div></div>
+	<label class="score-input__head border__top border__left border__bottom">Hole</label>
+	<label class="score-input__head border__top border__bottom">Score</label>
+	<label class="score-input__head border__top border__bottom">Putts</label>
+	<label class="score-input__head border__top border__bottom">Fairway</label>
+	<label class="score-input__head border__top border__bottom">Green</label>
+	<label class="score-input__head border__top border__bottom border__right">Points</label>
+	<label class="score-input__head border__top border__bottom">Hole</label>
+	<label class="score-input__head border__top border__bottom">Score</label>
+	<label class="score-input__head border__top border__bottom">Putts</label>
+	<label class="score-input__head border__top border__bottom">Fairway</label>
+	<label class="score-input__head border__top border__bottom">Green</label>
+	<label class="score-input__head border__top border__right border__bottom">Points</label>
 
 
-			<%tab_order = 3%>
-			<%tab_order_second_nine = +36%>
-			<% for i in 1..9 do %>
-				<%= render partial: "score_row", locals: { f: f, i: i, tab_order: tab_order} %>
-				<%tab_order = tab_order + 4%>
-			<% end %>
-
-
-			<%points_totals = @presenter.total_points(@score, @course)%>
-			<%score_totals = @presenter.total_score(@score)%>
-			<%putts_totals = @presenter.total_putts(@score)%>
-			<%fairways_totals = @presenter.total_fairways(@score)%>
-			<%greens_totals = @presenter.total_greens(@score)%>
-
-			<tr>
-				<td>
-					<label></label>
-				</td>
-				<td id="score_first_nine">
-					<label><%=score_totals[:first_nine_score]%></label>
-				</td>
-				<td id="putts_first_nine">
-					<label><%=putts_totals[:first_nine_putts]%></label>
-				</td>
-				<td id="fairways_first_nine">
-					<label><%=fairways_totals[:first_nine_fairways]%></label>
-				</td>
-				<td id="greens_first_nine">
-					<label><%=greens_totals[:first_nine_greens]%></label>
-				</td>
-				<td id="pts_first_nine">		
-					<label><%=points_totals[:first_nine_points]%></label>
-				</td>
-
-				<td>
-					<label>-</label>
-				</td>
-
-				<td>
-					<label></label>
-				</td>
-				<td id="score_second_nine">
-					<label><%=score_totals[:second_nine_score]%></label>
-				</td>
-				<td id="putts_second_nine">
-					<label><%=putts_totals[:second_nine_putts]%></label>
-				</td>
-				<td id="fairways_second_nine">
-					<label><%=fairways_totals[:second_nine_fairways]%></label>
-				</td>
-				<td id="greens_second_nine">
-					<label><%=greens_totals[:second_nine_greens]%></label>
-				</td>
-				<td id="pts_second_nine">		
-					<label><%=points_totals[:second_nine_points]%></label>
-				</td
-			</tr>
-		</table>
-			
-
-		<table class="table table-bordered table-condensed" style="width: 200px">
-			<tr>
-				<td>
-					<label>Total Score</label>
-				</td>
-				<td id="score_total">		
-					<label><%=score_totals[:total_score]%></label>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label>Total Points</label>
-				</td>
-				<td id="pts_total">		
-					<label><%=points_totals[:total_points]%></label>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label>Total Putts</label>
-				</td>
-				<td id="putts_total">		
-					<label><%=putts_totals[:total_putts]%></label>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label>Total Fairways</label>
-				</td>
-				<td id="fairways_total">		
-					<label><%=fairways_totals[:total_fairways]%></label>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label>Total Greens</label>
-				</td>
-				<td id="greens_total">		
-					<label><%=greens_totals[:total_greens]%></label>
-				</td>
-			</tr>
-		</table>
-	</div>
-
-	<%= f.submit "Save", class: "btn btn-large btn-primary", tabindex: 75%>
-	<%= link_to "Cancel", score_path(current_user), {:class=>"btn btn-default"} %>
-
+	<%tab_order = 3%>
+	<%tab_order_second_nine = +36%>
+	<% for i in 1..9 do %>
+		<%= render partial: "score_row", locals: { f: f, i: i, tab_order: tab_order} %>
+		<%tab_order = tab_order + 4%>
 	<% end %>
 
-	<script>
-		$("[id*='score_score'], [id*='score_putts'], [id*='score_fairways'], [id*='score_greens'], [id='handicap']").change(function(){
-			$.ajax({
-				url: "<%= Rails.application.routes.url_helpers.score_calcs_score_path(:id => 0) %>",
-				type: "patch",
-				data: {'field_id': $(this).attr('id'), 'score': $(this).val(), 'checkbox_state': $(this).is(":checked"), 'hole_number': $(this).attr("hn"), 'handicap': $("[id='handicap']").val()}
-			});
+
+	<!-- calculate totals -->
+
+	<%points_totals = @presenter.total_points(@score, @course)%>
+	<%score_totals = @presenter.total_score(@score)%>
+	<%putts_totals = @presenter.total_putts(@score)%>
+	<%fairways_totals = @presenter.total_fairways(@score)%>
+	<%greens_totals = @presenter.total_greens(@score)%>
+
+	<!-- column totals -->
+	<div class="border__top border__bottom border__left">
+		<label></label>
+	</div>
+	<div id="blank_first_nine" class="border__top border__bottom border__left">
+		<label></label>
+	</div>
+	<div id="score_first_nine" class="border__top border__bottom">
+		<label><%=score_totals[:first_nine_score]%></label>
+	</div>
+	<div id="putts_first_nine" class="border__top border__bottom">
+		<label><%=putts_totals[:first_nine_putts]%></label>
+	</div>
+	<div id="fairways_first_nine" class="border__top border__bottom">
+		<label><%=fairways_totals[:first_nine_fairways]%></label>
+	</div>
+	<div id="greens_first_nine" class="border__top border__bottom">
+		<label><%=greens_totals[:first_nine_greens]%></label>
+	</div>
+	<div id="pts_first_nine" class="border__top border__bottom border__right">		
+		<label><%=points_totals[:first_nine_points]%></label>
+	</div>
+
+	<div id="blank_second_nine" class="border__top border__bottom">
+		<label></label>
+	</div>
+	<div id="score_second_nine" class="border__top border__bottom">
+		<label><%=score_totals[:second_nine_score]%></label>
+	</div>
+	<div id="putts_second_nine" class="border__top border__bottom">
+		<label><%=putts_totals[:second_nine_putts]%></label>
+	</div>
+	<div id="fairways_second_nine" class="border__top border__bottom">
+		<label><%=fairways_totals[:second_nine_fairways]%></label>
+	</div>
+	<div id="greens_second_nine" class="border__top border__bottom">
+		<label><%=greens_totals[:second_nine_greens]%></label>
+	</div>
+	<div id="pts_second_nine" class="border__top border__bottom border__right">		
+		<label><%=points_totals[:second_nine_points]%></label>
+	</div>
+
+	<!-- overall totals -->
+
+	<div class="score-input__total-score__label score-input__overll-totals">
+		<label>Total Score</label>
+	</div>
+	<div id="score_total" class = "score-input__overll-totals">		
+		<label><%=score_totals[:total_score]%></label>
+	</div>
+
+	<div class="score-input__total-points__label score-input__overll-totals">
+		<label>Total Points</label>
+	</div>
+	<div id="pts_total" class = "score-input__overll-totals">		
+		<label><%=points_totals[:total_points]%></label>
+	</div>
+
+	<div class="score-input__total-putts__label score-input__overll-totals">
+		<label>Total Putts</label>
+	</div>
+	<div id="putts_total" class = "score-input__overll-totals">		
+		<label><%=putts_totals[:total_putts]%></label>
+	</div>
+
+	<div class="score-input__total-fairways__label score-input__overll-totals">
+		<label>Total Fairways</label>
+	</div>
+	<div id="fairways_total" class = "score-input__overll-totals">		
+		<label><%=fairways_totals[:total_fairways]%></label>
+	</div>
+
+	<div class="score-input__total-greens__label score-input__overll-totals">
+		<label>Total Greens</label>
+	</div>
+	
+	<div id="greens_total" class = "score-input__overll-totals">		
+		<label><%=greens_totals[:total_greens]%></label>
+	</div>
+
+	<%= f.submit "Save", class: "score-input__save-btn", tabindex: 75%>
+	<%= link_to "Cancel", score_path(current_user), class: "score-input__cancel-btn" %>
+
+<% end %>			
+
+
+<script>
+	$("[id*='score_score'], [id*='score_putts'], [id*='score_fairways'], [id*='score_greens'], [id='handicap']").change(function(){
+		$.ajax({
+			url: "<%= Rails.application.routes.url_helpers.score_calcs_score_path(:id => 0) %>",
+			type: "patch",
+			data: {'field_id': $(this).attr('id'), 'score': $(this).val(), 'checkbox_state': $(this).is(":checked"), 'hole_number': $(this).attr("hn"), 'handicap': $("[id='handicap']").val()}
 		});
-	</script>
-</div>
+	});
+</script>
+
 

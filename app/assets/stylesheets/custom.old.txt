@@ -1,0 +1,428 @@
+// @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+/* START RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption, footer,
+header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+strong, b {
+  font-weight: bold;
+}
+em, i {
+  font-style: italic;
+}
+a img {
+  border: none;
+}
+/* END RESET */
+
+/* -------------------------------------------------------------------
+ * mixins, variables, etc
+ * -----------------------------------------------------------------*/
+
+$grayMediumLight: #eaeaea;
+/* RGB */
+$light-cyan: rgba(215, 255, 241, 1);
+$mint: rgba(170, 252, 184, 1);
+$light-green: rgba(140, 215, 144, 1);
+$green: rgba(119, 175, 156, 1);
+$hunter-green: rgba(40, 89, 67, 1);
+$gray: rgb(211, 211, 211);
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ 
+/* universal */
+
+html {
+  overflow-y: scroll;
+  font-family: 'Exo', sans-serif;
+}
+
+body {
+  background: $light-cyan;
+  padding-top: 10px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+div.field_with_errors {
+ display: inline;
+}
+
+.form-inline .form-group-score-input input {
+  width:80px;
+  height: 30px;
+}
+
+table {
+  table-layout: auto;
+}
+
+table th, table td { overflow: hidden; }
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  
+}
+
+p {
+  font-size: 1em;
+  line-height: 1em;
+}
+
+/* -------------------------------------------------------------------
+ * header
+ * -----------------------------------------------------------------*/
+ 
+.header-bar {
+  background: $green;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.logo {
+  border: 2px solid black;
+  color: white;
+  text-transform: uppercase;
+  font-size: 3.2em;
+  font-weight: bold;
+  padding: 6px 6px 2px 6px; /* 2px to copenssate for no underline */
+  text-align: center;
+  text-decoration: none;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+}
+
+
+.logo:hover {
+    color: $mint;
+  }
+
+
+.main-btn-group {
+  flex-grow: 2;
+  flex-shrink: 2;
+  width: 400px;
+}
+
+.signed-in-user {
+  font-size: .8em;
+  padding: 2px;
+  flex-grow: 3;
+  flex-shrink: 3;
+  // border: 2px solid black;
+  // background: orange;
+}
+
+
+.navbar-btn {a, a:link, a:hover, a:visited, a:active {text-decoration: none; color: black}}
+
+
+/* -------------------------------------------------------------------
+ * drop down
+ * -----------------------------------------------------------------*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+  
+/* -------------------------------------------------------------------
+ * footer
+ * -----------------------------------------------------------------*/
+        
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  
+  a {
+    color: $gray;
+    &:hover {
+      
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    margin: 0 0 8px 0;
+  }
+  li {
+    margin: 0 0 0 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+/* -------------------------------------------------------------------
+ * sidebar
+ * -----------------------------------------------------------------*/
+        
+
+aside {
+  section {
+    padding: 10px 0;
+    border-top: 1px solid ;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------
+ * forms
+ * -----------------------------------------------------------------*/
+        
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  /*width: 100%;
+  margin-bottom: 15px;*/
+  @include box_sizing;
+}
+
+input {
+  /* height: auto !important; */
+}
+
+/* -------------------------------------------------------------------
+ * user inbox
+ * -----------------------------------------------------------------*/
+        
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid ;
+    &:last-child {
+      border-bottom: 1px solid ;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------
+ * scores
+ * -----------------------------------------------------------------*/
+        
+
+.scores {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.score_date {
+  display: block;
+}
+.timestamp {
+  
+}
+
+#score_entry label {
+  display: inline-block;
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+
+
+/* -------------------------------------------------------------------
+ * miscellaneous
+ * -----------------------------------------------------------------*/
+        
+.main-btn-group {
+  border: 2px solid red;
+}
+
+.drop-btn-group {
+  border: 2px solid orange;
+}
+
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+/* -------------------------------------------------------------------
+ * std_pagination
+ * -----------------------------------------------------------------*/
+        
+
+.std_pagination {
+  text-align: center;
+  padding: 0.3em;
+  cursor: default;
+}
+
+.std_pagination a, .std_pagination span, .std_pagination em {
+    padding: 0.2em 0.5em;
+}
+
+.std_pagination .disabled {
+    color: #aaaaaa; 
+}
+
+.std_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    color: #ff0084; 
+}
+
+.std_pagination a {
+    border: 1px solid #dddddd;
+    color: #0063dc;
+    text-decoration: none; 
+}
+
+.std_pagination a:hover, .std_pagination a:focus {
+      border-color: #003366;
+      background: #0063dc;
+      color: white; 
+}
+
+.std_pagination .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em; 
+}
+
+.std_pagination .previous_page, .std_pagination .next_page {
+    border-width: 2px; 
+}
+
+.std_pagination .previous_page {
+    margin-right: 1em; 
+}
+
+.std_pagination .next_page {
+    margin-left: 1em; 
+}

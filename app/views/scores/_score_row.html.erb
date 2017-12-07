@@ -1,44 +1,47 @@
-<tr>
-	<td>
-		<label><%=i%>:</label>
-	</td>
-	<td>
-		<%= f.number_field ("score_" + i.to_s).to_sym, class: "form-control", placeholder: "Score", hn: i, tabindex: tab_order%>
-	</td>
-	<td>
-		<%= f.number_field ("putts_" + i.to_s).to_sym, class: "form-control", placeholder: "Putts", hn: i, tabindex: tab_order + 1%>
-	</td>
-	<td>
-		<%= f.check_box ("fairways_" + i.to_s).to_sym, class: "form-control" , placeholder: "F", hn: i, tabindex: tab_order + 2%>
-	</td>
-	<td>
-		<%= f.check_box ("greens_" + i.to_s).to_sym, class: "form-control" , placeholder: "G", hn: i, tabindex: tab_order + 3%>
-	</td>
-	<td id="pts_<%=i.to_s%>">		
-		<%= render partial: "pts", locals: {:score => eval("@score.score_" + i.to_s), :par => eval("@course.par_" + i.to_s), :hc => @score.hc, :stroke_index => eval("@course.si_" + i.to_s)} %>
-	</td>
+
+<div class="x">
+</div>
+
+<div class="score-input__hole-number__label border__left">
+	<label><%=i%>:</label>
+</div>	
+
+<%= f.number_field ("score_" + i.to_s).to_sym, class: "score-input__score-row", placeholder: "Score", hn: i, tabindex: tab_order%>
 
 
-	<td>
-	</td>
+<%= f.number_field ("putts_" + i.to_s).to_sym, class: "score-input__putt-row", placeholder: "Putts", hn: i, tabindex: tab_order + 1%>
 
-	<td>
-		<label><%=(i+9)%>:</label>
-	</td>
-	<td>
-		<%= f.number_field ("score_" + (i+9).to_s).to_sym, class: "form-control", placeholder: "Score", hn: (i+9), tabindex: tab_order + 36%>
-	</td> 
-	<td>
-		<%= f.number_field ("putts_" + (i+9).to_s).to_sym, class: "form-control", placeholder: "Putts", hn: (i+9), tabindex: tab_order + 37%>
-	</td>
-	<td>
-		<%= f.check_box ("fairways_" + (i+9).to_s).to_sym, class: "form-control" , placeholder: "F", hn: (i+9), tabindex: tab_order + 38%>
-	</td>
-	<td>
-		<%= f.check_box ("greens_" + (i+9).to_s).to_sym, class: "form-control" , placeholder: "G", hn: (i+9), tabindex: tab_order + 39%>
-	</td>
-	<td id="pts_<%=(i+9).to_s%>">
-			<%= render partial: "pts", locals: {:score => eval("@score.score_" + (i+9).to_s), :par => eval("@course.par_" + (i+9).to_s), :hc => @score.hc,
-																				  :stroke_index => eval("@course.si_" + (i+9).to_s)} %>
-	</td>
-</tr>
+<div class = "score-input__fairway-row">
+	<%= f.check_box ("fairways_" + i.to_s).to_sym, class: "" , placeholder: "F", hn: i, tabindex: tab_order + 2%>
+</div>
+
+<div class = "score-input__green-row">
+	<%= f.check_box ("greens_" + i.to_s).to_sym, class: "" , placeholder: "G", hn: i, tabindex: tab_order + 3%>
+</div>
+
+<div class="score-input__hole-pts__label border__right" id="pts_<%=i.to_s%>">		
+	<%= render partial: "pts", locals: {:score => eval("@score.score_" + i.to_s), :par => eval("@course.par_" + i.to_s), :hc => @score.hc, :stroke_index => eval("@course.si_" + i.to_s)} %>
+</div>
+
+
+<div class="score-input__hole-number__label">
+	<label><%=(i+9)%>:</label>
+</div>
+
+<%= f.number_field ("score_" + (i+9).to_s).to_sym, class: "score-input__score-row", placeholder: "Score", hn: (i+9), tabindex: tab_order + 36%>
+
+
+<%= f.number_field ("putts_" + (i+9).to_s).to_sym, class: "score-input__putt-row", placeholder: "Putts", hn: (i+9), tabindex: tab_order + 37%>
+
+<div class = "score-input__fairway-row x">
+	<%= f.check_box ("fairways_" + (i+9).to_s).to_sym, class: "" , placeholder: "F", hn: (i+9), tabindex: tab_order + 38%>
+</div>
+
+<div class = "score-input__fairway-row x">
+	<%= f.check_box ("greens_" + (i+9).to_s).to_sym, class: "" , placeholder: "G", hn: (i+9), tabindex: tab_order + 39%>
+</div>
+
+<div class="score-input__hole-pts__label border__right" id="pts_<%=(i+9).to_s%>">
+		<%= render partial: "pts", locals: {:score => eval("@score.score_" + (i+9).to_s), :par => eval("@course.par_" + (i+9).to_s), :hc => @score.hc, :stroke_index => eval("@course.si_" + (i+9).to_s)} %>
+</div>
+

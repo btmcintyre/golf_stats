@@ -1,45 +1,42 @@
 <% provide(:title, @user.name) %>
 
-<div class="btn-group">
-  <%= link_to "Enter New Score", new_score_path, class: "btn btn-success align-center" %>
-</div>
 
+  
+  <%= link_to "Enter New Score", new_score_path, class: "scores__new-btn" %>
+  
+  
   <% if @user.scores.any? %>
-    <h5>Scores (<%= @user.scores.count %>)</h5>
-    <ol class="scores">
-      
-      <table class="table table-bordered table-condensed" style="width: 600px">
-        <tr>
-          <th>Date</th>
-          <th>HC</th>
-          <th>Score</th>
-          <th>Points</th>
-          <th>Putts</th>
-          <th>Fairways</th>
-          <th>Greens</th>
-        </tr>
+    
    
-        <% @scores.each do |score| %>
-          
-          <tr>
-            <td><%= score.score_date.strftime("%d/%m/%y") %></td>
-            <td><%= score.hc %></td>
-            <td><%= @presenter.total_score(score)[:total_score] %></td>      
-            <td><%= @presenter.total_points(score, @course)[:total_points] %></td>      
-            <td><%= @presenter.total_putts(score)[:total_putts] %></td>      
-            <td><%= @presenter.total_fairways(score)[:total_fairways] %></td>      
-            <td><%= @presenter.total_greens(score)[:total_greens] %></td> 
-            <td><%= link_to "Edit", edit_score_path(score) %> / <%= link_to "Delete", score, method: :delete,
-                                  data: { confirm: "Are you absolutely sure?" } %></td> 
-            
-          </tr>
-        <% end %>
-      </table>
- 
-    </ol>
+    <div class="scores">
+      <div class="scores__header scores__header--text">Date</div>
+      <div class="scores__header scores__header--text">HC</div>
+      <div class="scores__header scores__header--text">Score</div>
+      <div class="scores__header scores__header--text">Points</div>
+      <div class="scores__header scores__header--text">Putts</div>
+      <div class="scores__header scores__header--text">Fairways</div>
+      <div class="scores__header scores__header--text">Greens</div>
+      <div class="scores__header scores__header--text">Action</div>
+      
+      <% @scores.each do |score| %>          
+          <div class="scores__row scores__row--text"><%= score.score_date.strftime("%d/%m/%y") %></div>
+          <div class="scores__row scores__row--num"><%= score.hc %></div>
+          <div class="scores__row scores__row--num"><%= @presenter.total_score(score)[:total_score] %></div>      
+          <div class="scores__row scores__row--num"><%= @presenter.total_points(score, @course)[:total_points] %></div>      
+          <div class="scores__row scores__row--num"><%= @presenter.total_putts(score)[:total_putts] %></div>      
+          <div class="scores__row scores__row--num"><%= @presenter.total_fairways(score)[:total_fairways] %></div>      
+          <div class="scores__row scores__row--num"><%= @presenter.total_greens(score)[:total_greens] %></div> 
+          <div class="scores__row scores__row--text"><%= link_to "Edit", edit_score_path(score) %> / <%= link_to "Delete", score, method:                                             :delete, data: { confirm: "Are you absolutely sure?" } %></div>    
+      <% end %>
+  
+
+      <h4 class="scores__count">Scores (<%= @user.scores.count %>)</h4>
+    </div>  
+    
     <div class="std_pagination">
       <%= will_paginate @scores%>
     </div>
+
   <% end %>
 
 
