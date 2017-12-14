@@ -85,7 +85,27 @@ $button: rgb(215,229,255);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
- 
+
+@mixin button {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Exo', sans-serif;
+  line-height: 28px;
+  text-align: center;
+  width: 74px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  background-color: $button;
+  border: 1px solid black; 
+}
+
+@mixin button-hover {
+  color: #006398;
+  border: 1px solid #006398;
+}
+
 /* universal */
 
 html {
@@ -258,25 +278,43 @@ p {
 
 .container {
   position: relative;
+  height: 80vh;
 }
 
 
 /* -------------------------------------------------------------------
  * Home contents
- * -----------------------------------------------------------------*/
-.home-content {
-  h1 {
-    padding: 12px;
+ * -----------------------------------------------------------------*/      
+
+img.ri
+{
+  position: absolute;
+  max-width: 80%;
+  top: 10%;
+  left: 10%;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+}
+
+img.ri:empty
+{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (orientation: portrait) {
+  img.ri {
+      max-width: 90%;
   }
- 
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-    height: 600px;
+}
+
+@media screen and (orientation: landscape) {
+  img.ri {
+      max-height: 90%;
   }
-}        
+}
+
 
 /* -------------------------------------------------------------------
  * score grid
@@ -294,15 +332,12 @@ p {
 
 
 .scores {
-  //background-color: $mint;
-  //width: 764px; 
+  
   display: grid;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   // not supported in SASS grid-template-columns: 80px [col-date] 60px [col-hc] 60px [col-score] 60px [col-points] 60px [col-putts] 60px [col-fairways] 60px [col-greens] 180px [col-actions];
   grid-template-columns: 90px 80px 80px 80px 80px 80px 80px 180px;
-  
-  //border: 2px solid black;
   justify-content: center;
 }
 
@@ -381,7 +416,7 @@ p {
 .score-input__date-input {
   align-self: center;
   margin-left: 8px;
-  width: 160px;
+  width: 200px;
   height: 30px;
   grid-column: 4/span 2;
   grid-row: 1;
@@ -541,23 +576,11 @@ p {
 
 
 .score-input__save-btn, .score-input__cancel-btn {
-  font-size: 1em;
-  font-weight: normal;
-  font-family: 'Exo', sans-serif;
-  line-height: 28px;
-  text-align: center;
-  width: 74px;
-  text-decoration: none;
-  border-radius: 3px;
-  cursor: pointer;
-  color: black;
-  background-color: $button;
-  border: 1px solid black; 
+  @include button; 
 }
 
 .score-input__save-btn:hover, .score-input__cancel-btn:hover {
-  color: #006398;
-  border: 1px solid #006398;
+ @include button-hover;
 }
 
 
@@ -786,4 +809,62 @@ aside {
 
 .std_pagination .next_page {
     margin-left: 1em; 
+}
+
+/* -------------------------------------------------------------------
+ * Log in
+ * -----------------------------------------------------------------*/
+.log-in-form {
+  text-align: center;
+}
+
+.log-in-form__input {
+  @include box_sizing;
+  display: inline-block;
+  margin-top: 60px;
+  text-align: right;
+  width: 300px;
+  height: 220px;
+  background-color: $mint;
+  padding: 0 30px 0 30px;
+  border: 1px solid black;
+}
+
+.log-in-form__input * {
+  margin-top: 12px;
+}
+
+.log-in-form__input__email--input, .log-in-form__input__password--input{
+  width: 150px;
+}
+
+.log-in-form__input__sign-in-btn {
+  @include button;
+}
+
+.log-in-form__input__sign-in-btn:hover {
+  @include button-hover;
+}
+
+.log-in-form__input__sign-up {
+  text-align: center;
+  margin-top: 24px;
+}
+
+
+
+/* -------------------------------------------------------------------
+ * Misc
+ * -----------------------------------------------------------------*/
+
+.flash-message {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  background-color: $hunter-green;
+  border-radius: 4px;
+  color: white;
+  padding: 4px; 
+  margin-right: 20px;
+  margin-top: 6px; 
 }

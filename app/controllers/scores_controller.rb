@@ -65,7 +65,7 @@ class ScoresController < ApplicationController
   def create
     @score = current_user.scores.build(score_params)
     if @score.save
-      flash[:notice] = "Score created!"
+      flash[:notice] = "New Score Created"
       redirect_to score_path(current_user)
     else
       render 'new'
@@ -81,10 +81,9 @@ class ScoresController < ApplicationController
   end
   
   def update
-    #binding.pry
     @score = current_user.scores.find(params[:id])
     if @score.update_attributes(score_params)
-     flash[:notice] = "Score updated"
+     flash[:notice] = "Score Updated"
      redirect_to score_path(current_user)
    else
      render 'edit'
@@ -94,7 +93,7 @@ class ScoresController < ApplicationController
   def destroy
     @score = current_user.scores.find(params[:id])
     @score.destroy
-    flash[:notice] = "Score deleted."
+    flash[:notice] = "Score Deleted"
     redirect_to score_path(current_user)
   end
 

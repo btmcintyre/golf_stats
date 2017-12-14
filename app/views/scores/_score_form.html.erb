@@ -1,8 +1,8 @@
 	
-<%= form_for(@score, :html => {:class => 'score-input', :id => ""}) do |f| %>
+<%= form_for(@score, :html => {:class => 'score-input'}) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	
-	<%= f.label :score_date, "Score Date:", class: "score-input__date-label"  %>
+	<%= f.label :score_date, "Score Date:", class: "score-input__date-label"%>
 	<%= f.date_field :score_date, class: "score-input__date-input", id: "date", placeholder: "Date:", autofocus: true, tabindex: 1%>
 
 	<%= f.label :hc, "Handicap:", class: "score-input__hc-label"  %>
