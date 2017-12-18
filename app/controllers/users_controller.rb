@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user,    only: [:edit, :update]
   before_action :admin_user,      only: :destroy
   before_action :signed_out_user, only: [:new, :create]
+  #before_filter :check_for_cancel, :only => [:create, :update, :edit]
+
 
   def index
     @users = User.paginate(page: params[:page], per_page: 12)
@@ -28,9 +30,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    logger.info "xxx Edit method"
   end
 
   def update
+    logger.info "xxx update method"
     if @user.update_attributes(user_params)
       flash[:notice] = "Profile updated"
       redirect_to @user
@@ -68,4 +72,14 @@ class UsersController < ApplicationController
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end
+
+  #def check_for_cancel
+   # if params[:commit] == "Cancel"
+    #  redirect_to root_path
+    #end
+  #end
+
+# <%= link_to "Cancel", root_path, {:class=>"user-settings__input__cancel-btn"} %>
+
+
 end

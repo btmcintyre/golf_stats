@@ -9,6 +9,7 @@
     
    
     <div class="scores">
+      <div class="scores__title">Scores (<%= @user.scores.count %>)</div>
       <div class="scores__header scores__header--text">Date</div>
       <div class="scores__header scores__header--text">HC</div>
       <div class="scores__header scores__header--text">Score</div>
@@ -29,8 +30,6 @@
           <div class="scores__row scores__row--text"><%= link_to "Edit", edit_score_path(score) %> / <%= link_to "Delete", score, method:                                             :delete, data: { confirm: "Are you absolutely sure?" } %></div>    
       <% end %>
   
-
-      <h4 class="scores__count">Scores (<%= @user.scores.count %>)</h4>
     </div>  
     
     <div class="std_pagination">

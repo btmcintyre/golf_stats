@@ -1,9 +1,28 @@
 <% provide(:title, 'All users') %>
-<h4>Users</h4>
 
-<ul class="users">
-  <%= render @users %>
-</ul>
+<div class="user-list">
+
+  <div class="user-list__title">Users</div>
+
+	<div class="user-list__header user-list__header--col1">Name</div>
+	<div class = "user-list__header user-list__header--col2">Email</div>
+	<div class = "user-list__header user-list__header--col3">Link</div>
+	<div class = "user-list__header user-list__header--col4">Action</div>
+
+	<% @users.each do |user| %>   
+		<div class = "user-list__row user-list__row--col1"><%=user.name%></div>
+		<div class = "user-list__row user-list__row--col2"><%=user.email%></div>
+		<div class = "user-list__row user-list__row--col3"><%= link_to user.name, user %></div>
+
+  	<div class = "user-list__row user-list__row--col4">
+	  	<% if current_user.admin? && !current_user?(user) %>
+	    	<%= link_to "delete", user, method: :delete, data: { confirm: "Are you absolutely sure?" } %>
+	    <% else %>
+	    	-
+	  	<% end %>
+	  </div>
+	<%end%>
+<div>
 
 <div class="std_pagination">
   <%= will_paginate @users %>

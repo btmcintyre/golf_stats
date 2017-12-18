@@ -1,13 +1,8 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
-      <p>
-        <%= @user.email %>
-      </p>
-    </section>
-  </aside>
+<div class="profile">
+  <div class="profile__info"> 
+    <p><b>Name:</b>&nbsp&nbsp<%=@user.name%></p> 
+    <p><b>Email:</b>&nbsp&nbsp<%=@user.email%></p> 
+    <p><b>Admin:</b>&nbsp<%=if @user.admin then "Yes" else "No" end%></p> 
+  </div>
 </div>

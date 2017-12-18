@@ -1,12 +1,34 @@
 <% provide(:title, "Edit user") %>
 
-<h4>Update your profile...</h4><p></p>
+<div class = "user-settings">
 
-<div class = "container">
-	<%= form_for(@user , html:{class: "form-horizontal", role: "form"}) do |f| %>
-		<%= render 'fields', f: f %>
-		
-		<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-		<%= link_to "Cancel", root_path, {:class=>"btn btn-default"} %>
-   <% end %>
+	<div class = "user-settings__input">
+		<h2>Update your profile</h2>
+
+		<%= form_for(@user , html:{class: "", role: "form"}) do |f| %>
+		  <p>
+		  	<%= f.label :name, "Name:", class: "user-settings__input__name-label" %>
+		  	<%= f.text_field :name, class: "user-settings__input__name-input", id: "name", placeholder: "" %>
+		  </p>
+
+		  <p>
+		 		<%= f.label :email, "Email:", class: "user-settings__input__email-label" %>
+		  	<%= f.text_field :email, class: "user-settings__input__email-input", id: "email", placeholder: "" %>
+	  	</p>
+		  
+		  <p>
+		  	<%= f.label :password, "Password:", class: "user-settings__input__password-label" %>
+		  	<%= f.password_field :password, class: "user-settings__input__password-input", id: "password", placeholder: "" %>
+	  	</p>
+		  
+		  <p>
+		  	<%= f.label :password_confirmation, "Confirm Password:", class: "user-settings__input__password-confirm-label" %>
+		  	<%= f.password_field :password_confirmation, class: "user-settings__input__password-confirm-input", id: "password_confirmation", placeholder: "" %>
+	  	</p>
+		  
+			<%= f.submit "Save", class: "user-settings__input__save-btn" %>
+	  <% end %>
+
+	  <%= button_to "Cancel", root_path, method: :get, class: "user-settings__input__cancel-btn" %>	
+	</div>
 </div>

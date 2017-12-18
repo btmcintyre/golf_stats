@@ -1,14 +1,37 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, "Sign Up") %>
 
-<h4>Sign up...</h4><p></p>
+<div class = "sign-up">
 
-<div class = "container">
-  <%= form_for(@user , html:{class: "form-horizontal", role: "form"}) do |f| %>
-		<%= render 'fields', f: f %>
-		
-		<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-		<%= link_to "Cancel", root_path, {:class=>"btn btn-default"} %>
-   <% end %>
+	<div class = "sign-up__input">
+		<h2>Create New Account</h2>
+
+		<%= form_for(@user , html:{class: "", role: "form"}) do |f| %>
+		  <p>
+		  	<%= f.label :name, "Name:", class: "sign-up__input__name-label" %>
+		  	<%= f.text_field :name, class: "sign-up__input__name-input", id: "name", placeholder: "" %>
+		  </p>
+
+		  <p>
+		 		<%= f.label :email, "Email:", class: "sign-up__input__email-label" %>
+		  	<%= f.text_field :email, class: "sign-up__input__email-input", id: "email", placeholder: "" %>
+	  	</p>
+		  
+		  <p>
+		  	<%= f.label :password, "Password:", class: "sign-up__input__password-label" %>
+		  	<%= f.password_field :password, class: "sign-up__input__password-input", id: "password", placeholder: "" %>
+	  	</p>
+		  
+		  <p>
+		  	<%= f.label :password_confirmation, "Confirm Password:", class: "sign-up__input__password-confirm-label" %>
+		  	<%= f.password_field :password_confirmation, class: "sign-up__input__password-confirm-input", id: "password_confirmation", placeholder: "" %>
+	  	</p>
+		  
+			<%= f.submit "Save", class: "sign-up__input__save-btn" %>
+	  <% end %>
+
+	  <%= button_to "Cancel", root_path, method: :get, class: "sign-up__input__cancel-btn" %>	
+	</div>
 </div>
+
 	
     
