@@ -1,44 +1,31 @@
 <!-- Edit Course -->
 
-<div class = "container">
-	<%= form_for(@course , html:{class: "form-inline", role: "form"}) do |f| %>
-		<%= render 'shared/error_messages', object: f.object %>
-		
+<%= form_for(@course, html:{class: "course-input", role: "form"}) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
 
-		<div class="form-group">
-      <%= f.label :name, "Course Name:" %>
-      <%= f.text_field :name, class: "form-control", id: "name", placeholder: "Course Name" %>
-    </div>
-		</p>
+  <label class="course-input__name-label">Course Name: </label>	
+  <%= f.text_field :name, class: "course-input__name-input", autofocus: true%>
 
-	  
-	  <div class = "form-group-score-input">
-		<table class="table table-bordered table-condensed" style="width: 300px">
-	      <tr>
-	        <th style="width: 60px">Hole </th>
-	        <th style="width: 40px">Par</th>
-	        <th style="width: 40px">SI</th>
-	      </tr>      
+  <div class = "course-input__row-head">Hole</div>
+  <div class = "course-input__row-head">Par</div>
+  <div class = "course-input__row-head">SI</div>
 
-	      <% for i in 1..18 do %> 
-					<tr>
-						<td>
-							<label>Hole <%=i%></label>	
-						</td>
-						<td>
-							<%= f.number_field ("par_" + i.to_s).to_sym, class: "form-control", placeholder: "Par" %>
-						</td>
-						<td>
-							<%= f.number_field ("si_" + i.to_s).to_sym, class: "form-control", placeholder: "SI" %>
-						</td>
-					</tr>
-	      <% end %>
+  <div class = "course-input__row-head">Hole</div>
+  <div class = "course-input__row-head">Par</div>
+  <div class = "course-input__row-head">SI</div>
+ 
+  
+  <% for i in 1..9 do %> 
+			<label class="course-input_row-line__hole-number">Hole <%=i%></label>	
+			<%= f.number_field ("par_" + i.to_s).to_sym, class: "course-input_row-line", placeholder: "Par" %>
+			<%= f.number_field ("si_" + i.to_s).to_sym, class: "course-input_row-line", placeholder: "SI" %>	
 
-	      <!--<td><%#= @course.attributes %></td>-->
-	    </table>
-	  </div>
-			
-		<%= f.submit "Save", class: "btn btn-large btn-primary" %>
-		<%= link_to "Cancel", score_path(current_user), {:class=>"btn btn-default"} %>
+			<label class="course-input_row-line__hole-number">Hole <%=(i+9)%></label>	
+			<%= f.number_field ("par_" + (i+9).to_s).to_sym, class: "course-input_row-line", placeholder: "Par" %>
+			<%= f.number_field ("si_" + (i+9).to_s).to_sym, class: "course-input_row-line", placeholder: "SI" %>	
 	<% end %>
-</div>
+	
+	<%= f.submit "Save", class: "course-input__save-btn" %>
+	<%= link_to "Cancel", course_path, method: :get, class: "course-input__cancel-btn" %>	
+<% end %>
+

@@ -60,8 +60,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-
-
 /* END RESET */
 
 /* -------------------------------------------------------------------
@@ -90,6 +88,7 @@ $button: rgb(215,229,255);
   font-size: 1em;
   font-weight: normal;
   font-family: 'Exo', sans-serif;
+  height: 28px;
   line-height: 28px;
   text-align: center;
   width: 74px;
@@ -239,6 +238,7 @@ p {
 
 }
 
+
 .dropdown {
     padding: 6px;
     position: relative;
@@ -329,15 +329,14 @@ img.ri:empty
 .site-search--full {} // Modifier 
 */        
 
-
 .scores {
-  
   display: grid;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   // not supported in SASS grid-template-columns: 80px [col-date] 60px [col-hc] 60px [col-score] 60px [col-points] 60px [col-putts] 60px [col-fairways] 60px [col-greens] 180px [col-actions];
   grid-template-columns: 90px 80px 80px 80px 80px 80px 80px 180px;
   justify-content: center;
+  margin: 10px 0 0 0;
 }
 
 .scores__title {
@@ -374,24 +373,18 @@ img.ri:empty
   text-align: center;
  }
 
+
 .scores__new-btn {
-  line-height: 24px;
-  text-align: center;
+  @include button;
   position: absolute;
   top: 4px;
   left: 10px;
   width: 160px;
   height: 24px;
-  text-decoration: none;
-  border-radius: 3px;
-  cursor: pointer;
-  color: black;
-  background-color: $button;
-  border: 1px solid black; 
 }
+
 .scores__new-btn:hover {
-  color: #006398;
-  border: 1px solid #006398;
+  @include button-hover;
 }
 
 
@@ -563,7 +556,6 @@ img.ri:empty
 
 
 /* save / cancel button */
-
 .score-input__save-btn {
   grid-column: 11;
   grid-row: 17;
@@ -577,6 +569,7 @@ img.ri:empty
 
 .score-input__save-btn, .score-input__cancel-btn {
   @include button; 
+  @include box-sizing;
 }
 
 .score-input__save-btn:hover, .score-input__cancel-btn:hover {
@@ -600,6 +593,151 @@ img.ri:empty
 
 .border__bottom {
   border-bottom: 1px solid black
+}
+
+
+/* -------------------------------------------------------------------
+ * course grid
+ * -----------------------------------------------------------------*/      
+
+.course {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 90px 80px 80px 80px 80px 80px 80px;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+.course__title, .course__row__break {
+  grid-column: 1/span 7;
+  background-color: $green;
+  color: black;
+  padding: 4px;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.course__header {
+  background-color: $hunter-green;
+  color: white;
+  padding: 4px;
+  text-align: center;
+}
+
+.course__row {
+  background-color: $mint;
+  padding: 4px;
+  padding-right: 8px;
+  text-align: right;
+}
+
+.course__edit-btn {
+  @include button;
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  width: 160px;
+  height: 24px;
+ 
+}
+.course__edit-btn:hover {
+  @include button-hover;
+}
+
+/* -------------------------------------------------------------------
+ * course input grid
+ * -----------------------------------------------------------------*/      
+
+.course-input {
+  @include box_sizing;
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 80px 50px 50px 80px 50px 50px;
+  grid-template-rows: 80px 40px repeat(9, 30px) 40px 10px;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+
+.course-input > div[style="margin:0;padding:0;display:inline"] {  
+  grid-row: 13;
+}    
+
+.course-input__name-label {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  color: black;
+  padding: 4px;
+  font-size: 1.1rem;
+  text-align: right;
+  height: 30px;
+  line-height: 30px;
+  align-self: center;
+}
+
+.course-input__name-input {
+  grid-row: 1;
+  grid-column: 3 / span 4;
+  width: 220px;
+  height: 30px;
+  line-height: 30px;
+  color: black;
+  padding: 4px;
+  font-size: 1.1rem;
+  text-align: left;  
+  align-self: center;
+}
+
+.course-input__row-head {
+  background-color: $green;
+  color: black;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 10px 0px 0px 0px;
+}
+
+.course-input_row-line__hole-number {
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 6px 0px 6px 0px;
+}
+
+.course-input_row-line {
+  width: 50px;
+  font-size: 1.1rem;
+  background-color: #fafafa;
+  padding: 0px 8px 0px 0px;
+  border: none;
+  text-align: right;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+}
+
+.course-input__save-btn {
+  grid-column: 4 / span 2;
+  text-align: left;
+  align-self: end;
+  justify-self: start;
+  margin-left: 28px
+}
+
+.course-input__cancel-btn {
+  text-align: right;
+  grid-column: 6;
+  align-self: end;
+  justify-self: end;
+}
+
+.course-input__save-btn, .course-input__cancel-btn {
+  @include button;
+  @include box_sizing;
+}
+
+.course-input__save-btn:hover, .course-input__cancel-btn:hover {
+  @include button-hover;
 }
 
 /* -------------------------------------------------------------------
@@ -783,38 +921,7 @@ input {
   }
 }
 
-/* -------------------------------------------------------------------
- * scores
- * -----------------------------------------------------------------*/
-        
 
-
-.scores {
-  list-style: none;
-  margin: 10px 0 0 0;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-}
-.score_date {
-  display: block;
-}
-.timestamp {
-  
-}
-
-#score_entry label {
-  display: inline-block;
-}
-
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
 
 
 
@@ -835,56 +942,58 @@ aside {
 /* -------------------------------------------------------------------
  * std_pagination
  * -----------------------------------------------------------------*/
-        
+
 
 .std_pagination {
-  text-align: center;
-  padding: 0.3em;
   cursor: default;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .std_pagination a, .std_pagination span, .std_pagination em {
-    padding: 0.2em 0.5em;
+  padding: 0.2em 0.5em;
+  display: inline-block;
+  margin-right: 1px; 
 }
 
 .std_pagination .disabled {
-    color: #aaaaaa; 
+  color: #999999;
+  border: 1px solid #dddddd; 
 }
 
 .std_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    color: #ff0084; 
+  font-style: normal;
+  background: $green;
+  border: 1px solid $green;
 }
 
 .std_pagination a {
-    border: 1px solid #dddddd;
-    color: #0063dc;
-    text-decoration: none; 
+  text-decoration: none;
+  color: #105cb6;
+  border: 1px solid #9aafe5; 
 }
 
 .std_pagination a:hover, .std_pagination a:focus {
-      border-color: #003366;
-      background: #0063dc;
-      color: white; 
+    color: #000033;
+    border-color: #000033; 
 }
 
-.std_pagination .page_info {
-    color: #aaaaaa;
-    padding-top: 0.8em; 
+.std_pagination:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+* html .std_pagination {
+  height: 1%; 
 }
 
-.std_pagination .previous_page, .std_pagination .next_page {
-    border-width: 2px; 
+*:first-child + html .std_pagination {
+  overflow: hidden; 
 }
 
-.std_pagination .previous_page {
-    margin-right: 1em; 
-}
 
-.std_pagination .next_page {
-    margin-left: 1em; 
-}
 
 /* -------------------------------------------------------------------
  * Log in

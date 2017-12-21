@@ -44,7 +44,7 @@ class ScoresController < ApplicationController
   def show
     @user   = User.find(params[:id])
     @course = @user.course
-    @scores = @user.scores.paginate(page: params[:page], per_page: 50)
+    @scores = @user.scores.paginate(page: params[:page], per_page: 3)
     @presenter = ScorePresenters::GolfScorePresenter.new 
 
     respond_to do |format|

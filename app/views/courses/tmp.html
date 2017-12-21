@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/Volumes/Development/source/golf_stats/app/assets/stylesheets/custom.css.scss">
+  <title>Golf Statistics</title>
+  <link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+  <link data-turbolinks-track="true" href="/assets/courses.css?body=1" media="all" rel="stylesheet" />
+  <link data-turbolinks-track="true" href="/assets/custom.css?body=1" media="all" rel="stylesheet" />
+  <link data-turbolinks-track="true" href="/assets/sessions.css?body=1" media="all" rel="stylesheet" />
+  <link data-turbolinks-track="true" href="/assets/static_pages.css?body=1" media="all" rel="stylesheet" />
+  <link data-turbolinks-track="true" href="/assets/users.css?body=1" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/jquery.js?body=1"></script>
+  <script data-turbolinks-track="true" src="/assets/jquery_ujs.js?body=1"></script>
+  <script data-turbolinks-track="true" src="/assets/bootstrap.js?body=1"></script>
+  <script data-turbolinks-track="true" src="/assets/turbolinks.js?body=1"></script>
+  <script data-turbolinks-track="true" src="/assets/courses.js?body=1"></script>
+  <script data-turbolinks-track="true" src="/assets/sessions.js?body=1"></script>
+  <script data-turbolinks-track="true" src="/assets/static_pages.js?body=1"></script>
+  <script data-turbolinks-track="true" src="/assets/users.js?body=1"></script>
+  <script data-turbolinks-track="true" src="/assets/application.js?body=1"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+  <meta content="ZtunqRwZxYZfb3f7Hd3OrjTUXeHKGP1ltRC8882UBmg=" name="csrf-token" />
+  <!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="header-bar">
+
+    <a class="logo" href="/">-</a>
+
+    <div class="main-btn-group">
+      <a href="/">Home</a>
+      <a href="/scores/1">Scores</a>
+      <a href="/users">Users</a>
+      <div class="dropdown">
+        <span>Account</span>
+        <div class="dropdown-content">
+          <ul>
+            <li>
+              <a href="/users/1">Profile</a>
+            </li>
+            <li>
+              <a href="/users/1/edit">Settings</a>
+            </li>
+            <li>
+              <a href="/courses/1">Course</a>
+            </li>
+            <li>
+              <a href="/scores/1.csv">Export Scores</a>
+            </li>
+            <li>
+              <a data-method="delete" href="/signout" rel="nofollow">Sign out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="signed-in-user">
+      <p>
+        Current User: Brian McIntyre, btmcintyre@gmail.com, Castle Golf Club 1, 4 scores
+      </p>
+
+    </div>
+  </div>
+  <div class="container">
+    <!-- Edit Course -->
+
+    <form accept-charset="UTF-8" action="/courses/1" class="course-input" id="edit_course_1" method="post" role="form">
+    
+
+      <label class="course-input__name-label">Course Name: </label>
+      <input class="course-input__name-input" id="course_name" name="course[name]" type="text" value="Castle Golf Club 1" />
+
+      <div class="course-input__row-head">Hole</div>
+      <div class="course-input__row-head">Par</div>
+      <div class="course-input__row-head">SI</div>
+
+      <div class="course-input__row-head">Hole</div>
+      <div class="course-input__row-head">Par</div>
+      <div class="course-input__row-head">SI</div>
+
+      <label class="course-input_row-line__hole-number">Hole 1</label>
+      <input class="course-input_row-line" id="course_par_1" name="course[par_1]" placeholder="Par" type="number" value="5" />
+      <input class="course-input_row-line" id="course_si_1" name="course[si_1]" placeholder="SI" type="number" value="9" />
+
+      <label class="course-input_row-line__hole-number">Hole 10</label>
+      <input class="course-input_row-line" id="course_par_10" name="course[par_10]" placeholder="Par" type="number" value="3" />
+      <input class="course-input_row-line" id="course_si_10" name="course[si_10]" placeholder="SI" type="number" value="16" />
+      <label class="course-input_row-line__hole-number">Hole 2</label>
+      <input class="course-input_row-line" id="course_par_2" name="course[par_2]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_2" name="course[si_2]" placeholder="SI" type="number" value="3" />
+
+      <label class="course-input_row-line__hole-number">Hole 11</label>
+      <input class="course-input_row-line" id="course_par_11" name="course[par_11]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_11" name="course[si_11]" placeholder="SI" type="number" value="8" />
+      <label class="course-input_row-line__hole-number">Hole 3</label>
+      <input class="course-input_row-line" id="course_par_3" name="course[par_3]" placeholder="Par" type="number" value="3" />
+      <input class="course-input_row-line" id="course_si_3" name="course[si_3]" placeholder="SI" type="number" value="17" />
+
+      <label class="course-input_row-line__hole-number">Hole 12</label>
+      <input class="course-input_row-line" id="course_par_12" name="course[par_12]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_12" name="course[si_12]" placeholder="SI" type="number" value="12" />
+      <label class="course-input_row-line__hole-number">Hole 4</label>
+      <input class="course-input_row-line" id="course_par_4" name="course[par_4]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_4" name="course[si_4]" placeholder="SI" type="number" value="13" />
+
+      <label class="course-input_row-line__hole-number">Hole 13</label>
+      <input class="course-input_row-line" id="course_par_13" name="course[par_13]" placeholder="Par" type="number" value="3" />
+      <input class="course-input_row-line" id="course_si_13" name="course[si_13]" placeholder="SI" type="number" value="18" />
+      <label class="course-input_row-line__hole-number">Hole 5</label>
+      <input class="course-input_row-line" id="course_par_5" name="course[par_5]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_5" name="course[si_5]" placeholder="SI" type="number" value="7" />
+
+      <label class="course-input_row-line__hole-number">Hole 14</label>
+      <input class="course-input_row-line" id="course_par_14" name="course[par_14]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_14" name="course[si_14]" placeholder="SI" type="number" value="2" />
+      <label class="course-input_row-line__hole-number">Hole 6</label>
+      <input class="course-input_row-line" id="course_par_6" name="course[par_6]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_6" name="course[si_6]" placeholder="SI" type="number" value="5" />
+
+      <label class="course-input_row-line__hole-number">Hole 15</label>
+      <input class="course-input_row-line" id="course_par_15" name="course[par_15]" placeholder="Par" type="number" value="3" />
+      <input class="course-input_row-line" id="course_si_15" name="course[si_15]" placeholder="SI" type="number" value="14" />
+      <label class="course-input_row-line__hole-number">Hole 7</label>
+      <input class="course-input_row-line" id="course_par_7" name="course[par_7]" placeholder="Par" type="number" value="3" />
+      <input class="course-input_row-line" id="course_si_7" name="course[si_7]" placeholder="SI" type="number" value="15" />
+
+      <label class="course-input_row-line__hole-number">Hole 16</label>
+      <input class="course-input_row-line" id="course_par_16" name="course[par_16]" placeholder="Par" type="number" value="5" />
+      <input class="course-input_row-line" id="course_si_16" name="course[si_16]" placeholder="SI" type="number" value="6" />
+      <label class="course-input_row-line__hole-number">Hole 8</label>
+      <input class="course-input_row-line" id="course_par_8" name="course[par_8]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_8" name="course[si_8]" placeholder="SI" type="number" value="11" />
+
+      <label class="course-input_row-line__hole-number">Hole 17</label>
+      <input class="course-input_row-line" id="course_par_17" name="course[par_17]" placeholder="Par" type="number" value="5" />
+      <input class="course-input_row-line" id="course_si_17" name="course[si_17]" placeholder="SI" type="number" value="10" />
+      <label class="course-input_row-line__hole-number">Hole 9</label>
+      <input class="course-input_row-line" id="course_par_9" name="course[par_9]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_9" name="course[si_9]" placeholder="SI" type="number" value="1" />
+
+      <label class="course-input_row-line__hole-number">Hole 18</label>
+      <input class="course-input_row-line" id="course_par_18" name="course[par_18]" placeholder="Par" type="number" value="4" />
+      <input class="course-input_row-line" id="course_si_18" name="course[si_18]" placeholder="SI" type="number" value="4" />
+
+      <input class="course-input__save-btn" name="commit" type="submit" value="Save" />
+      <form action="/courses/1" class="button_to" method="get">
+        <div>
+          <input class="course-input__cancel-btn" type="submit" value="Cancel" />
+        </div>
+      </form>
+
+    </form>
+
+    <footer class="footer">
+
+    </footer>
+  </div>
+</body>
+
+</html>

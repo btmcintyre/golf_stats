@@ -32,10 +32,16 @@
   
     </div>  
     
-    <div class="std_pagination">
+    <!--
+    <div class="digg_pagination">
       <%= will_paginate @scores%>
     </div>
+    -->
 
+    <div class="std_pagination">
+      <%= will_paginate @scores, :container => false %>
+    </div>
+ 
   <% end %>
 
 

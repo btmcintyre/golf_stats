@@ -30,7 +30,7 @@ module ScorePresenters
           total = total + 1 
         end       
       end
-      return '%.2f' % (100.fdiv(scores.count) * total)
+      return '%.0f' % (100.fdiv(scores.count) * total)
     end
 
     def average_greens(scores, i)
@@ -40,7 +40,7 @@ module ScorePresenters
           total = total + 1
         end
       end
-      return '%.2f' % (100.fdiv(scores.count) * total)
+      return '%.0f' % (100.fdiv(scores.count) * total)
     end
   end
 end
