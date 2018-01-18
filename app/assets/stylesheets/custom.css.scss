@@ -85,6 +85,7 @@ $button: rgb(215,229,255);
 }
 
 @mixin button {
+  @include box-sizing;
   font-size: 1em;
   font-weight: normal;
   font-family: 'Exo', sans-serif;
@@ -97,7 +98,7 @@ $button: rgb(215,229,255);
   cursor: pointer;
   color: black;
   background-color: $button;
-  border: 1px solid black; 
+  border: 1px solid black;
 }
 
 @mixin button-hover {
@@ -111,7 +112,7 @@ html {
   overflow-y: scroll;
   font-family: 'Exo', sans-serif;
   font-style: normal;
-  letter-spacing: .05em;  
+  letter-spacing: .05em;
 }
 
 body {
@@ -164,7 +165,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  
+
 }
 
 p {
@@ -175,7 +176,7 @@ p {
 /* -------------------------------------------------------------------
  * header
  * -----------------------------------------------------------------*/
- 
+
 .header-bar {
   background: $green;
   display: flex;
@@ -214,7 +215,7 @@ p {
     color: white;
   }
 
-  a:link { 
+  a:link {
     padding: 6px;
     text-decoration: none;
   }
@@ -223,7 +224,7 @@ p {
     color: white;
   }
 
-  a:hover { 
+  a:hover {
     //font-weight: bold;
     color: #e9e9e9;
   }
@@ -284,7 +285,7 @@ p {
 
 /* -------------------------------------------------------------------
  * Home contents
- * -----------------------------------------------------------------*/      
+ * -----------------------------------------------------------------*/
 
 img.ri
 {
@@ -324,10 +325,10 @@ img.ri:empty
 .block {}
 .block__element {}
 .block--modifier {}
-.site-search {} // Block 
-.site-search__field {} // Element 
-.site-search--full {} // Modifier 
-*/        
+.site-search {} // Block
+.site-search__field {} // Element
+.site-search--full {} // Modifier
+*/
 
 .scores {
   display: grid;
@@ -380,7 +381,6 @@ img.ri:empty
   top: 4px;
   left: 10px;
   width: 160px;
-  height: 24px;
 }
 
 .scores__new-btn:hover {
@@ -435,14 +435,14 @@ img.ri:empty
   font-size: 1em;
 }
 
-.score-input__head, .score-input__score-row, .score-input__putt-row, .score-input__fairway-row, .score-input__green-row, 
+.score-input__head, .score-input__score-row, .score-input__putt-row, .score-input__fairway-row, .score-input__green-row,
 .score-input__hole-number__label, .score-input__hole-pts__label {
   background-color: white;
   text-align: center;
   font-size: 1em;
 }
 
-#blank_first_nine, #score_first_nine, #putts_first_nine, #fairways_first_nine, #greens_first_nine, #pts_first_nine, 
+#blank_first_nine, #score_first_nine, #putts_first_nine, #fairways_first_nine, #greens_first_nine, #pts_first_nine,
 #blank_second_nine, #score_second_nine, #putts_second_nine, #fairways_second_nine, #greens_second_nine, #pts_second_nine {
   background-color: white;
   text-align: center;
@@ -489,7 +489,7 @@ img.ri:empty
 
 #score_first_nine, #putts_first_nine, #pts_first_nine, #score_second_nine, #putts_second_nine, #pts_second_nine {
   text-align: right;
-  padding-right: 12px; 
+  padding-right: 12px;
 }
 
 
@@ -560,15 +560,15 @@ img.ri:empty
   grid-column: 11;
   grid-row: 17;
 }
-  
+
 .score-input__cancel-btn {
   grid-column: 12;
-  grid-row: 17; 
+  grid-row: 17;
 }
 
 
 .score-input__save-btn, .score-input__cancel-btn {
-  @include button; 
+  @include button;
   @include box-sizing;
 }
 
@@ -585,7 +585,7 @@ img.ri:empty
 
 .border__left {
   border-left: 1px solid black
-} 
+}
 
 .border__right {
   border-right: 1px solid black
@@ -598,7 +598,7 @@ img.ri:empty
 
 /* -------------------------------------------------------------------
  * course grid
- * -----------------------------------------------------------------*/      
+ * -----------------------------------------------------------------*/
 
 .course {
   display: grid;
@@ -639,8 +639,6 @@ img.ri:empty
   top: 4px;
   left: 10px;
   width: 160px;
-  height: 24px;
- 
 }
 .course__edit-btn:hover {
   @include button-hover;
@@ -648,7 +646,7 @@ img.ri:empty
 
 /* -------------------------------------------------------------------
  * course input grid
- * -----------------------------------------------------------------*/      
+ * -----------------------------------------------------------------*/
 
 .course-input {
   @include box_sizing;
@@ -662,9 +660,9 @@ img.ri:empty
 }
 
 
-.course-input > div[style="margin:0;padding:0;display:inline"] {  
+.course-input > div[style="margin:0;padding:0;display:inline"] {
   grid-row: 13;
-}    
+}
 
 .course-input__name-label {
   grid-row: 1;
@@ -687,7 +685,7 @@ img.ri:empty
   color: black;
   padding: 4px;
   font-size: 1.1rem;
-  text-align: left;  
+  text-align: left;
   align-self: center;
 }
 
@@ -742,10 +740,10 @@ img.ri:empty
 
 /* -------------------------------------------------------------------
  * user-list grid
- * -----------------------------------------------------------------*/       
+ * -----------------------------------------------------------------*/
 
 
-.user-list { 
+.user-list {
   display: grid;
   margin-top: 16px;
   grid-column-gap: 0px;
@@ -818,17 +816,17 @@ img.ri:empty
 /* -------------------------------------------------------------------
  * footer
  * -----------------------------------------------------------------*/
-        
+
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  
+
   a {
     color: $gray;
     &:hover {
-      
+
     }
   }
   small {
@@ -862,7 +860,7 @@ footer {
 /* -------------------------------------------------------------------
  * sidebar
  * -----------------------------------------------------------------*/
-        
+
 
 aside {
   section {
@@ -890,7 +888,7 @@ aside {
 /* -------------------------------------------------------------------
  * forms
  * -----------------------------------------------------------------*/
-        
+
 
 input, textarea, select, .uneditable-input {
   //border: 1px solid #bbb;
@@ -906,7 +904,7 @@ input {
 /* -------------------------------------------------------------------
  * user inbox
  * -----------------------------------------------------------------*/
-        
+
 
 .users {
   list-style: none;
@@ -953,12 +951,12 @@ input {
 .std_pagination a, .std_pagination span, .std_pagination em {
   padding: 0.2em 0.5em;
   display: inline-block;
-  margin-right: 1px; 
+  margin-right: 1px;
 }
 
 .std_pagination .disabled {
   color: #999999;
-  border: 1px solid #dddddd; 
+  border: 1px solid #dddddd;
 }
 
 .std_pagination .current {
@@ -970,12 +968,12 @@ input {
 .std_pagination a {
   text-decoration: none;
   color: #105cb6;
-  border: 1px solid #9aafe5; 
+  border: 1px solid #9aafe5;
 }
 
 .std_pagination a:hover, .std_pagination a:focus {
     color: #000033;
-    border-color: #000033; 
+    border-color: #000033;
 }
 
 .std_pagination:after {
@@ -986,11 +984,11 @@ input {
   visibility: hidden; }
 
 * html .std_pagination {
-  height: 1%; 
+  height: 1%;
 }
 
 *:first-child + html .std_pagination {
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 
@@ -1075,8 +1073,7 @@ input {
   @include button;
   float: right;
   margin: 12px 0 12px 4px;
-  padding: 8px;
-
+  padding: 0px;
 }
 
 .user-settings__input__save-btn:hover, .user-settings__input__cancel-btn:hover {
@@ -1085,7 +1082,7 @@ input {
 
 
 /* -------------------------------------------------------------------
- * user settings
+ * sign up
  * -----------------------------------------------------------------*/
 .sign-up {
   text-align: center;
@@ -1120,7 +1117,7 @@ input {
   @include button;
   float: right;
   margin: 12px 0 12px 4px;
-  padding: 8px;
+  padding: 0px;
 
 }
 
@@ -1163,7 +1160,7 @@ input {
   background-color: $hunter-green;
   border-radius: 4px;
   color: white;
-  padding: 4px; 
+  padding: 4px;
   margin-right: 20px;
-  margin-top: 6px; 
+  margin-top: 6px;
 }

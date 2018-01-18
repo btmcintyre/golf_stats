@@ -15,20 +15,23 @@
 		 		<%= f.label :email, "Email:", class: "user-settings__input__email-label" %>
 		  	<%= f.text_field :email, class: "user-settings__input__email-input", id: "email", placeholder: "" %>
 	  	</p>
-		  
+
 		  <p>
 		  	<%= f.label :password, "Password:", class: "user-settings__input__password-label" %>
 		  	<%= f.password_field :password, class: "user-settings__input__password-input", id: "password", placeholder: "" %>
 	  	</p>
-		  
+
 		  <p>
 		  	<%= f.label :password_confirmation, "Confirm Password:", class: "user-settings__input__password-confirm-label" %>
 		  	<%= f.password_field :password_confirmation, class: "user-settings__input__password-confirm-input", id: "password_confirmation", placeholder: "" %>
 	  	</p>
-		  
+
+
 			<%= f.submit "Save", class: "user-settings__input__save-btn" %>
+			<%= link_to "Cancel", root_path, method: :get, class: "user-settings__input__cancel-btn" %>
+
 	  <% end %>
 
-	  <%= button_to "Cancel", root_path, method: :get, class: "user-settings__input__cancel-btn" %>	
+
 	</div>
 </div>

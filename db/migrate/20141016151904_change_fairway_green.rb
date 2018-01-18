@@ -1,4 +1,4 @@
-class ChangeFairwayGreen < ActiveRecord::Migration
+class ChangeFairwayGreen < ActiveRecord::Migration[5.1]
   def change
   	change_column :scores, :fairways_1, 'boolean USING CAST(fairways_1 AS boolean)'
   	change_column :scores, :fairways_2, 'boolean USING CAST(fairways_2 AS boolean)'

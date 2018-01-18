@@ -1,0 +1,1338 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+@import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+/* START RESET */
+/* line 4, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strong, sub, sup, var,
+b, u, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption, footer,
+header, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 22, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block;
+}
+
+/* line 26, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+body {
+  line-height: 1;
+}
+
+/* line 29, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 32, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
+}
+
+/* line 37, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 41, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+strong, b {
+  font-weight: bold;
+}
+
+/* line 44, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+em, i {
+  font-style: italic;
+}
+
+/* line 47, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+a img {
+  border: none;
+}
+
+/* line 52, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* line 56, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* END RESET */
+/* -------------------------------------------------------------------
+ * mixins, variables, etc
+ * -----------------------------------------------------------------*/
+/* RGB */
+/* universal */
+/* line 110, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+html {
+  overflow-y: scroll;
+  font-family: 'Exo', sans-serif;
+  font-style: normal;
+  letter-spacing: .05em;
+}
+
+/* line 117, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+body {
+  background: #d7fff1;
+  padding-top: 10px;
+}
+
+/* line 122, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+section {
+  overflow: auto;
+}
+
+/* line 126, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 131, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+div.field_with_errors {
+  display: inline;
+}
+
+/* line 136, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.form-inline .form-group-score-input input {
+  width: 80px;
+  height: 30px;
+}
+
+/* line 142, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+table {
+  table-layout: auto;
+}
+
+/* line 146, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+table th, table td {
+  overflow: hidden;
+}
+
+/* typography */
+/* line 150, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+/* line 154, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* line 161, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+
+/* line 170, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+p {
+  font-size: 1em;
+  line-height: 1em;
+}
+
+/* -------------------------------------------------------------------
+ * header
+ * -----------------------------------------------------------------*/
+/* line 179, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.header-bar {
+  background: #77af9c;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* line 186, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.logo {
+  color: white;
+  text-transform: uppercase;
+  font-size: 3.2em;
+  font-weight: bold;
+  padding: 6px 6px 2px 6px;
+  /* 2px to compensate for no underline */
+  text-align: center;
+  text-decoration: none;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+/* line 199, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.logo:hover {
+  color: #aafcb8;
+}
+
+/* line 204, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.main-btn-group {
+  color: white;
+  flex-grow: 2;
+  flex-shrink: 2;
+  font-size: 1.2em;
+  margin: auto;
+  width: 400px;
+  text-align: center;
+}
+/* line 213, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.main-btn-group a {
+  color: white;
+}
+/* line 217, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.main-btn-group a:link {
+  padding: 6px;
+  text-decoration: none;
+}
+/* line 222, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.main-btn-group a:visited {
+  color: white;
+}
+/* line 226, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.main-btn-group a:hover {
+  color: #e9e9e9;
+}
+/* line 235, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.main-btn-group ul {
+  list-style: none;
+}
+
+/* line 242, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.dropdown {
+  padding: 6px;
+  position: relative;
+  display: inline-block;
+}
+
+/* line 248, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #77af9c;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  z-index: 1;
+}
+/* line 256, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.dropdown-content li {
+  padding: 4px;
+}
+
+/* line 261, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* line 265, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.signed-in-user {
+  flex-grow: 3;
+  flex-shrink: 3;
+  font-size: .8em;
+  padding: 2px;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+}
+
+/* -------------------------------------------------------------------
+ * container
+ * -----------------------------------------------------------------*/
+/* line 279, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.container {
+  position: relative;
+  height: 80vh;
+}
+
+/* -------------------------------------------------------------------
+ * Home contents
+ * -----------------------------------------------------------------*/
+/* line 289, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+img.ri {
+  position: absolute;
+  max-width: 80%;
+  top: 10%;
+  left: 10%;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* line 299, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+img.ri:empty {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (orientation: portrait) {
+  /* line 307, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+  img.ri {
+    max-width: 90%;
+  }
+}
+@media screen and (orientation: landscape) {
+  /* line 313, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+  img.ri {
+    max-height: 90%;
+  }
+}
+/* -------------------------------------------------------------------
+ * score grid
+ * -----------------------------------------------------------------*/
+/*
+.block {}
+.block__element {}
+.block--modifier {}
+.site-search {} // Block 
+.site-search__field {} // Element 
+.site-search--full {} // Modifier 
+*/
+/* line 332, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 90px 80px 80px 80px 80px 80px 80px 180px;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+/* line 342, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores__title {
+  grid-column: 1/span 8;
+  background-color: #77af9c;
+  color: black;
+  padding: 4px;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* line 352, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores__header {
+  background-color: #285943;
+}
+
+/* line 356, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores__header--text {
+  color: white;
+  padding: 4px;
+  text-align: center;
+}
+
+/* line 362, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores__row {
+  background-color: #aafcb8;
+  padding: 4px;
+  padding-right: 8px;
+}
+
+/* line 368, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores__row--num {
+  text-align: right;
+}
+
+/* line 372, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores__row--text {
+  text-align: center;
+}
+
+/* line 377, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores__new-btn {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Exo', sans-serif;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  width: 74px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  background-color: #d7e5ff;
+  border: 1px solid black;
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  width: 160px;
+  height: 24px;
+}
+
+/* line 386, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.scores__new-btn:hover {
+  color: #006398;
+  border: 1px solid #006398;
+}
+
+/* line 393, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 0px 70px 70px 70px 80px 80px 80px 70px 70px 70px 80px 80px 80px;
+  grid-template-rows: 60px repeat(19, 30px);
+  justify-content: center;
+  font-size: 1.1em;
+}
+
+/* line 404, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__date-label {
+  align-self: center;
+  justify-self: right;
+  grid-column: 2/span 2;
+  grid-row: 1;
+}
+
+/* line 411, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__date-input {
+  align-self: center;
+  margin-left: 8px;
+  width: 200px;
+  height: 30px;
+  grid-column: 4/span 2;
+  grid-row: 1;
+  font-size: 1.4em;
+}
+
+/* line 421, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__hc-label {
+  align-self: center;
+  justify-self: right;
+  grid-column: 6/span 2;
+  grid-row: 1;
+}
+
+/* line 428, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__hc-input {
+  align-self: center;
+  margin-left: 8px;
+  width: 60px;
+  height: 30px;
+  grid-column: 8/span 6;
+  grid-row: 1;
+  font-size: 1em;
+}
+
+/* line 438, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__head, .score-input__score-row, .score-input__putt-row, .score-input__fairway-row, .score-input__green-row,
+.score-input__hole-number__label, .score-input__hole-pts__label {
+  background-color: white;
+  text-align: center;
+  font-size: 1em;
+}
+
+/* line 445, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#blank_first_nine, #score_first_nine, #putts_first_nine, #fairways_first_nine, #greens_first_nine, #pts_first_nine,
+#blank_second_nine, #score_second_nine, #putts_second_nine, #fairways_second_nine, #greens_second_nine, #pts_second_nine {
+  background-color: white;
+  text-align: center;
+  font-size: 1em;
+  padding-top: 6px;
+}
+
+/* line 454, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__head {
+  padding-top: 6px;
+}
+
+/* line 458, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__hole-number__label {
+  padding-top: 7px;
+  color: blue;
+}
+
+/* line 463, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__score-row, .score-input__putt-row {
+  width: 70px;
+  border: none;
+  background-color: #fafafa;
+  text-align: right;
+  padding-right: 12px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+}
+
+/* line 473, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__fairway-row {
+  padding-top: 6px;
+  width: 80px;
+}
+
+/* line 478, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__green-row {
+  padding-top: 6px;
+  width: 80px;
+}
+
+/* line 483, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__hole-pts__label {
+  padding-top: 7px;
+  color: blue;
+  text-align: right;
+  padding-right: 12px;
+}
+
+/* line 490, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#score_first_nine, #putts_first_nine, #pts_first_nine, #score_second_nine, #putts_second_nine, #pts_second_nine {
+  text-align: right;
+  padding-right: 12px;
+}
+
+/* line 498, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__overll-totals {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  margin: 1px;
+  padding-top: 4px;
+  padding-left: 6px;
+}
+
+/* line 507, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__total-score__label {
+  grid-column: 2/span 2;
+  grid-row: 14;
+}
+
+/* line 512, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#score_total {
+  grid-column: 4;
+  grid-row: 14;
+}
+
+/* line 517, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__total-points__label {
+  grid-column: 2/span 2;
+  grid-row: 15;
+}
+
+/* line 522, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#pts_total {
+  grid-column: 4;
+  grid-row: 15;
+}
+
+/* line 527, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__total-putts__label {
+  grid-column: 2/span 2;
+  grid-row: 16;
+}
+
+/* line 532, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#putts_total {
+  grid-column: 4;
+  grid-row: 16;
+}
+
+/* line 537, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__total-fairways__label {
+  grid-column: 2/span 2;
+  grid-row: 17;
+}
+
+/* line 542, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#fairways_total {
+  grid-column: 4;
+  grid-row: 17;
+}
+
+/* line 547, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__total-greens__label {
+  grid-column: 2/span 2;
+  grid-row: 18;
+}
+
+/* line 552, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#greens_total {
+  grid-column: 4;
+  grid-row: 18;
+}
+
+/* save / cancel button */
+/* line 559, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__save-btn {
+  grid-column: 11;
+  grid-row: 17;
+}
+
+/* line 564, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__cancel-btn {
+  grid-column: 12;
+  grid-row: 17;
+}
+
+/* line 570, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__save-btn, .score-input__cancel-btn {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Exo', sans-serif;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  width: 74px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  background-color: #d7e5ff;
+  border: 1px solid black;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 575, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.score-input__save-btn:hover, .score-input__cancel-btn:hover {
+  color: #006398;
+  border: 1px solid #006398;
+}
+
+/* border styles */
+/* line 582, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.border__top {
+  border-top: 1px solid black;
+}
+
+/* line 586, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.border__left {
+  border-left: 1px solid black;
+}
+
+/* line 590, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.border__right {
+  border-right: 1px solid black;
+}
+
+/* line 594, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.border__bottom {
+  border-bottom: 1px solid black;
+}
+
+/* -------------------------------------------------------------------
+ * course grid
+ * -----------------------------------------------------------------*/
+/* line 603, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 90px 80px 80px 80px 80px 80px 80px;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+/* line 612, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course__title, .course__row__break {
+  grid-column: 1/span 7;
+  background-color: #77af9c;
+  color: black;
+  padding: 4px;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* line 622, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course__header {
+  background-color: #285943;
+  color: white;
+  padding: 4px;
+  text-align: center;
+}
+
+/* line 629, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course__row {
+  background-color: #aafcb8;
+  padding: 4px;
+  padding-right: 8px;
+  text-align: right;
+}
+
+/* line 636, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course__edit-btn {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Exo', sans-serif;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  width: 74px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  background-color: #d7e5ff;
+  border: 1px solid black;
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  width: 160px;
+  height: 24px;
+}
+
+/* line 645, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course__edit-btn:hover {
+  color: #006398;
+  border: 1px solid #006398;
+}
+
+/* -------------------------------------------------------------------
+ * course input grid
+ * -----------------------------------------------------------------*/
+/* line 653, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 80px 50px 50px 80px 50px 50px;
+  grid-template-rows: 80px 40px repeat(9, 30px) 40px 10px;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+/* line 665, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input > div[style="margin:0;padding:0;display:inline"] {
+  grid-row: 13;
+}
+
+/* line 669, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input__name-label {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  color: black;
+  padding: 4px;
+  font-size: 1.1rem;
+  text-align: right;
+  height: 30px;
+  line-height: 30px;
+  align-self: center;
+}
+
+/* line 681, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input__name-input {
+  grid-row: 1;
+  grid-column: 3 / span 4;
+  width: 220px;
+  height: 30px;
+  line-height: 30px;
+  color: black;
+  padding: 4px;
+  font-size: 1.1rem;
+  text-align: left;
+  align-self: center;
+}
+
+/* line 694, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input__row-head {
+  background-color: #77af9c;
+  color: black;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 10px 0px 0px 0px;
+}
+
+/* line 702, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input_row-line__hole-number {
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 6px 0px 6px 0px;
+}
+
+/* line 708, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input_row-line {
+  width: 50px;
+  font-size: 1.1rem;
+  background-color: #fafafa;
+  padding: 0px 8px 0px 0px;
+  border: none;
+  text-align: right;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+}
+
+/* line 719, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input__save-btn {
+  grid-column: 4 / span 2;
+  text-align: left;
+  align-self: end;
+  justify-self: start;
+  margin-left: 28px;
+}
+
+/* line 727, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input__cancel-btn {
+  text-align: right;
+  grid-column: 6;
+  align-self: end;
+  justify-self: end;
+}
+
+/* line 734, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input__save-btn, .course-input__cancel-btn {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Exo', sans-serif;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  width: 74px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  background-color: #d7e5ff;
+  border: 1px solid black;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 739, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.course-input__save-btn:hover, .course-input__cancel-btn:hover {
+  color: #006398;
+  border: 1px solid #006398;
+}
+
+/* -------------------------------------------------------------------
+ * user-list grid
+ * -----------------------------------------------------------------*/
+/* line 748, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list {
+  display: grid;
+  margin-top: 16px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 200px 280px 200px 100px;
+  justify-content: center;
+}
+
+/* line 757, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__title {
+  grid-column: 1/span 4;
+  background-color: #77af9c;
+  color: black;
+  padding: 4px;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* line 767, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__header {
+  background-color: #285943;
+  color: white;
+  padding: 4px;
+  text-align: center;
+}
+
+/* line 774, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__header--col1 {
+  grid-column: 1;
+}
+
+/* line 778, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__header--col2 {
+  grid-column: 2;
+}
+
+/* line 782, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__header--col3 {
+  grid-column: 3;
+}
+
+/* line 786, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__header--col4 {
+  grid-column: 4;
+}
+
+/* line 790, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__row {
+  background-color: #aafcb8;
+  padding: 4px;
+  padding-right: 8px;
+}
+
+/* line 796, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__row--col1 {
+  grid-column: 1;
+}
+
+/* line 800, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__row--col2 {
+  grid-column: 2;
+}
+
+/* line 804, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__row--col3 {
+  grid-column: 3;
+  text-decoration: none;
+}
+
+/* line 809, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__row--col3:hover {
+  color: #006398;
+}
+
+/* line 813, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-list__row--col4 {
+  grid-column: 4;
+  text-align: center;
+}
+
+/* -------------------------------------------------------------------
+ * footer
+ * -----------------------------------------------------------------*/
+/* line 823, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+}
+/* line 828, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+footer a {
+  color: lightgray;
+}
+/* line 834, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+footer small {
+  float: left;
+}
+/* line 837, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+footer ul {
+  float: right;
+  list-style: none;
+}
+/* line 840, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+/* line 847, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#error_explanation {
+  color: #f00;
+}
+/* line 849, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#error_explanation ul {
+  margin: 0 0 8px 0;
+}
+/* line 852, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+#error_explanation li {
+  margin: 0 0 0 0;
+}
+
+/* -------------------------------------------------------------------
+ * sidebar
+ * -----------------------------------------------------------------*/
+/* line 868, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+aside section {
+  padding: 10px 0;
+  border-top: 1px solid;
+}
+/* line 871, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+aside section:first-child {
+  border: 0;
+  padding-top: 0;
+}
+/* line 875, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+aside section span {
+  display: block;
+  margin-bottom: 3px;
+  line-height: 1;
+}
+/* line 880, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+aside section h1 {
+  font-size: 1.4em;
+  text-align: left;
+  letter-spacing: -1px;
+  margin-bottom: 3px;
+  margin-top: 0px;
+}
+
+/* -------------------------------------------------------------------
+ * forms
+ * -----------------------------------------------------------------*/
+/* line 895, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+input, textarea, select, .uneditable-input {
+  /*width: 100%;
+  margin-bottom: 15px;*/
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 902, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+input {
+  /* height: auto !important; */
+}
+
+/* -------------------------------------------------------------------
+ * user inbox
+ * -----------------------------------------------------------------*/
+/* line 911, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.users {
+  list-style: none;
+  margin: 0;
+}
+/* line 914, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.users li {
+  overflow: auto;
+  padding: 10px 0;
+  border-top: 1px solid;
+}
+/* line 918, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.users li:last-child {
+  border-bottom: 1px solid;
+}
+
+/* -------------------------------------------------------------------
+ * miscellaneous
+ * -----------------------------------------------------------------*/
+/* line 933, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------
+ * std_pagination
+ * -----------------------------------------------------------------*/
+/* line 947, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.std_pagination {
+  cursor: default;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* line 953, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.std_pagination a, .std_pagination span, .std_pagination em {
+  padding: 0.2em 0.5em;
+  display: inline-block;
+  margin-right: 1px;
+}
+
+/* line 959, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.std_pagination .disabled {
+  color: #999999;
+  border: 1px solid #dddddd;
+}
+
+/* line 964, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.std_pagination .current {
+  font-style: normal;
+  background: #77af9c;
+  border: 1px solid #77af9c;
+}
+
+/* line 970, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.std_pagination a {
+  text-decoration: none;
+  color: #105cb6;
+  border: 1px solid #9aafe5;
+}
+
+/* line 976, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.std_pagination a:hover, .std_pagination a:focus {
+  color: #000033;
+  border-color: #000033;
+}
+
+/* line 981, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.std_pagination:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* line 988, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+* html .std_pagination {
+  height: 1%;
+}
+
+/* line 992, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+*:first-child + html .std_pagination {
+  overflow: hidden;
+}
+
+/* -------------------------------------------------------------------
+ * Log in
+ * -----------------------------------------------------------------*/
+/* line 1001, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.log-in-form {
+  text-align: center;
+}
+
+/* line 1005, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.log-in-form__input {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 60px;
+  text-align: right;
+  background-color: #aafcb8;
+  padding: 0 30px 0 30px;
+  border: 1px solid black;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* line 1017, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.log-in-form__input h2 {
+  margin-top: 24px;
+}
+
+/* line 1021, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.log-in-form__input__email--label, .log-in-form__input__email--input,
+.log-in-form__input__password--label, .log-in-form__input__password--input {
+  font-size: 1rem;
+  margin-top: 8px;
+  width: 220px;
+}
+
+/* line 1028, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.log-in-form__input__sign-in-btn {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Exo', sans-serif;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  width: 74px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  background-color: #d7e5ff;
+  border: 1px solid black;
+  margin-top: 12px;
+}
+
+/* line 1033, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.log-in-form__input__sign-in-btn:hover {
+  color: #006398;
+  border: 1px solid #006398;
+}
+
+/* line 1037, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.log-in-form__input__sign-up {
+  text-align: center;
+  padding: 24px 0 16px 0;
+}
+
+/* -------------------------------------------------------------------
+ * user settings
+ * -----------------------------------------------------------------*/
+/* line 1045, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-settings {
+  text-align: center;
+}
+
+/* line 1049, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-settings__input {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 60px;
+  text-align: right;
+  background-color: #aafcb8;
+  padding: 0 30px 0 30px;
+  border: 1px solid black;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* line 1061, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-settings__input h2 {
+  margin-top: 24px;
+}
+
+/* line 1065, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-settings__input__name-label, .user-settings__input__name-input,
+.user-settings__input__email-label, .user-settings__input__email-input,
+.user-settings__input__password-label, .user-settings__input__password-input,
+.user-settings__input__password-confirm-label, .user-settings__input__password-confirm-input {
+  margin-top: 8px;
+  font-size: 1rem;
+  width: 200px;
+}
+
+/* line 1074, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-settings__input__save-btn, .user-settings__input__cancel-btn {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Exo', sans-serif;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  width: 74px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  background-color: #d7e5ff;
+  border: 1px solid black;
+  float: right;
+  margin: 12px 0 12px 4px;
+  padding: 8px;
+}
+
+/* line 1082, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.user-settings__input__save-btn:hover, .user-settings__input__cancel-btn:hover {
+  color: #006398;
+  border: 1px solid #006398;
+}
+
+/* -------------------------------------------------------------------
+ * user settings
+ * -----------------------------------------------------------------*/
+/* line 1090, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.sign-up {
+  text-align: center;
+}
+
+/* line 1094, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.sign-up__input {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 60px;
+  text-align: right;
+  background-color: #aafcb8;
+  padding: 0 30px 0 30px;
+  border: 1px solid black;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* line 1106, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.sign-up__input h2 {
+  margin-top: 24px;
+}
+
+/* line 1110, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.sign-up__input__name-label, .sign-up__input__name-input,
+.sign-up__input__email-label, .sign-up__input__email-input,
+.sign-up__input__password-label, .sign-up__input__password-input,
+.sign-up__input__password-confirm-label, .sign-up__input__password-confirm-input {
+  margin-top: 8px;
+  font-size: 1rem;
+  width: 200px;
+}
+
+/* line 1119, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.sign-up__input__save-btn, .sign-up__input__cancel-btn {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Exo', sans-serif;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  width: 74px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  background-color: #d7e5ff;
+  border: 1px solid black;
+  float: right;
+  margin: 12px 0 12px 4px;
+  padding: 8px;
+}
+
+/* line 1127, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.sign-up__input__save-btn:hover, .sign-up__input__cancel-btn:hover {
+  color: #006398;
+  border: 1px solid #006398;
+}
+
+/* -------------------------------------------------------------------
+ * profile
+ * -----------------------------------------------------------------*/
+/* line 1135, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.profile {
+  text-align: center;
+}
+
+/* line 1139, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.profile__info {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 60px;
+  text-align: left;
+  background-color: #aafcb8;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* line 1151, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.profile__info p {
+  line-height: 1.6em;
+}
+
+/* -------------------------------------------------------------------
+ * Misc
+ * -----------------------------------------------------------------*/
+/* line 1159, /usr/src/app/app/assets/stylesheets/custom.css.scss */
+.flash-message {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  background-color: #285943;
+  border-radius: 4px;
+  color: white;
+  padding: 4px;
+  margin-right: 20px;
+  margin-top: 6px;
+}
