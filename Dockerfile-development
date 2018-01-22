@@ -2,7 +2,7 @@
 FROM phusion/baseimage:0.9.22
 
 # Use baseimage-docker's init system.
-#CMD ["/sbin/my_init"]
+CMD ["/sbin/my_init"]
 
 RUN add-apt-repository -y ppa:brightbox/ruby-ng
 
@@ -23,7 +23,7 @@ COPY Gemfile* ./
 
 #ADD Gemfile /golf_stats/Gemfile
 #ADD Gemfile.lock /golf_stats/Gemfile.lock
-#USER user_golf_stats
+
 RUN chown -R user_golf_stats:user_golf_stats .
 
 #USER user_golf_stats
@@ -39,14 +39,5 @@ RUN gem install rake
 #RUN bundle update
 RUN bundle install
 COPY . .
-
-#USER root
-RUN chown -R user_golf_stats:user_golf_stats .
-
-USER user_golf_stats
-WORKDIR /usr/src/app
-
+#RUN RAILS_ENV=production  bundle exec rake assets:precompile
 #ADD . /golf_stats
-RUN RAILS_ENV=production bundle exec rake assets:precompile
-
-CMD bundle exec rails s -p $PORT -b '0.0.0.0'
